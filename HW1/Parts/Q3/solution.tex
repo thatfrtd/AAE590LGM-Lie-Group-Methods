@@ -1,0 +1,99 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW1.tex]{subfiles}
+\begin{document}
+
+\subsection{3.a)}
+\underline{Question}: \\
+Prove that $R(\theta)^T R(\theta) = I \forall\theta$ \\
+\underline{Solution}: \\
+\begin{gather*}
+    R(\theta)^T R(\theta) = \begin{pmatrix}
+        \cos(\theta) & \sin(\theta) \\ 
+        -\sin(\theta) & \cos(\theta)
+    \end{pmatrix} 
+    \begin{pmatrix}
+        \cos(\theta) & -\sin(\theta) \\ 
+        \sin(\theta) & \cos(\theta)
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        \cos^2(\theta) + \sin^2(\theta) & -\sin(\theta)\cos(\theta) + \sin(\theta)\cos(\theta) \\ 
+        -\sin(\theta)\cos(\theta) + \sin(\theta)\cos(\theta) & \cos^2(\theta) + \sin^2(\theta)
+    \end{pmatrix} \\ =
+    \begin{pmatrix}
+        1 & 0 \\ 
+        0 & 1
+    \end{pmatrix} = I \\
+    \therefore R(\theta)^T R(\theta) = I \forall\theta
+\end{gather*}
+
+\subsection{3.b)}
+\underline{Question}: \\
+Prove that $\text{det}(R(\theta)) = 1 \forall\theta$ \\
+\underline{Solution}: \\
+\begin{gather*}
+    \text{det}(R(\theta)) = \text{det}(\begin{pmatrix}
+        \cos(\theta) & -\sin(\theta) \\ 
+        \sin(\theta) & \cos(\theta)
+    \end{pmatrix}) = \cos^2(\theta) + \sin^2(\theta) = 1 \\
+    \therefore \text{det}(R(\theta)) = 1 \forall\theta
+\end{gather*}
+
+\subsection{3.c)}
+\underline{Question}: \\
+Derive the inverse $R(\theta)^{-1}$ and show it equals $R(-\theta)$ \\
+\underline{Solution}: \\
+The inverse of $R(\theta)$ is the rotation matrix that when multiplied with $R(\theta)$ results in the identtity matrix.
+This inverse is the transpose of $R(\theta)$ as seen by part 3.a.
+\begin{gather*}
+    R(\theta)^{-1} = R(\theta)^T = \begin{pmatrix}
+        \cos(\theta) & \sin(\theta) \\ 
+        -\sin(\theta) & \cos(\theta)
+    \end{pmatrix} \\
+    R(-\theta) = 
+    \begin{pmatrix}
+        \cos(-\theta) & -\sin(-\theta) \\ 
+        \sin(-\theta) & \cos(-\theta)
+    \end{pmatrix} =
+    \begin{pmatrix}
+        \cos(\theta) & \sin(\theta) \\ 
+        -\sin(\theta) & \cos(\theta)
+    \end{pmatrix} = R(\theta)^{-1} \\
+    \therefore R(\theta)^{-1} = R(-\theta)
+\end{gather*}
+
+\subsection{3.d)}
+\underline{Question}: \\
+Prove that $R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2)$ \\
+\underline{Solution}: \\
+\begin{gather*}
+    R(\theta_1)R(\theta_2) = \begin{pmatrix}
+        \cos(\theta_1) & -\sin(\theta_1) \\ 
+        \sin(\theta_1) & \cos(\theta_1)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos(\theta_2) & -\sin(\theta_2) \\ 
+        \sin(\theta_2) & \cos(\theta_2)
+    \end{pmatrix} \\ =
+    \begin{pmatrix}
+        \cos(\theta_1)\cos(\theta_2) -\sin(\theta_1)\sin(\theta_2) & -\cos(\theta_1)\sin(\theta_2) - \sin(\theta_1)\cos(\theta_2) \\ 
+        \sin(\theta_1)\cos(\theta_2) + \cos(\theta_1)\sin(\theta_2) & -\sin(\theta_1)\sin(\theta_2) + \cos(\theta_1)\cos(\theta_2)
+    \end{pmatrix} \\ = 
+    \begin{pmatrix}
+        \cos(\theta_1 + \theta_2) & -\sin(\theta_1 + \theta_2) \\ 
+        \sin(\theta_1 + \theta_2) & \cos(\theta_1 + \theta_2)
+    \end{pmatrix} = R(\theta_1 + \theta_2) \\
+    \therefore R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2)
+\end{gather*}
+
+\subsection{3.e)}
+\underline{Question}: \\
+Is $\SO{2}$ an abelian group? \\
+\underline{Solution}: \\
+An abelian group is defined by a group where the group operation commutes.
+If $\SO{2}$ commutes then $R(\theta_1)R(\theta_2) = R(\theta_2)R(\theta_1)$
+\begin{gather*}
+    \text{from 3.d we know }R(\theta_1)R(\theta_2) = R(\theta_1 + \theta_2) = R(\theta_2 + \theta_1) = R(\theta_2)R(\theta_1)
+\end{gather*}
+Therefore, $\SO{2}$ commutes so it is an abelian group.
+
+\end{document}

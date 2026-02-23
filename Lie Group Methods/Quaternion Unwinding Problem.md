@@ -1,0 +1,1 @@
+When use one element of quaternion to keep normalized, the quaternion can switch (different branch but same orientation) causing issues

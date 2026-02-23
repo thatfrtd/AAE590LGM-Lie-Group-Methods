@@ -1,0 +1,27 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{P1) Linear Algebra Review}{3}{section*.3}%
+\contentsline {subsection}{1.a)}{3}{section*.4}%
+\contentsline {subsection}{1.b)}{3}{section*.5}%
+\contentsline {subsection}{1.c)}{3}{section*.6}%
+\contentsline {subsection}{1.d)}{3}{section*.7}%
+\contentsline {subsection}{1.e)}{4}{section*.8}%
+\contentsline {section}{P2) Group Axioms}{5}{section*.9}%
+\contentsline {subsection}{2.a)}{5}{section*.10}%
+\contentsline {subsection}{2.b)}{5}{section*.11}%
+\contentsline {subsection}{2.c)}{5}{section*.12}%
+\contentsline {subsection}{2.d)}{6}{section*.13}%
+\contentsline {subsection}{2.e)}{6}{section*.14}%
+\contentsline {section}{P3) $\text {SO}(2)$ Properties}{7}{section*.15}%
+\contentsline {subsection}{3.a)}{7}{section*.16}%
+\contentsline {subsection}{3.b)}{7}{section*.17}%
+\contentsline {subsection}{3.c)}{7}{section*.18}%
+\contentsline {subsection}{3.d)}{7}{section*.19}%
+\contentsline {subsection}{3.e)}{8}{section*.20}%
+\contentsline {section}{P4) Lie Algebra of $\text {SO}(2)$}{9}{section*.21}%
+\contentsline {subsection}{4.a)}{9}{section*.22}%
+\contentsline {subsection}{4.b)}{9}{section*.23}%
+\contentsline {subsection}{4.c)}{9}{section*.24}%
+\contentsline {subsection}{4.d)}{9}{section*.25}%
+\contentsline {section}{P5) Python Implementation}{10}{section*.26}%
+\contentsline {subsection}{5.a-d) $\text {SO}(2)$ Mapping Functions}{10}{section*.27}%
+\contentsline {subsection}{5.e) Unit Tests}{10}{section*.28}%

@@ -1,0 +1,17 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{P1) Normal Subgroups and Quotient Groups}{3}{section*.3}%
+\contentsline {subsection}{1.a) \textbf {Definition and Intuition:}}{3}{section*.4}%
+\contentsline {subsection}{1.b) \textbf {A Matrix Group Example:}}{3}{section*.5}%
+\contentsline {subsection}{1.c) \textbf {First Isomorphism Theorem (Preview):}}{3}{section*.6}%
+\contentsline {section}{P2) SE(2) and the Semi-Direct Product}{4}{section*.7}%
+\contentsline {subsection}{2.a) \textbf {Matrix Representation:}}{4}{section*.8}%
+\contentsline {section}{P3) SE(2) Lie Algebra, Exp/Log, and Adjoint}{5}{section*.9}%
+\contentsline {subsection}{3.a) \textbf {Lie Algebra Structure:}}{5}{section*.10}%
+\contentsline {subsection}{3.b) \textbf {Exponential Map:}}{5}{section*.11}%
+\contentsline {subsection}{3.c) \textbf {Logarithm Map:}}{5}{section*.12}%
+\contentsline {subsection}{3.d) \textbf {Adjoint Representation $\mathrm {Ad}_X$:}}{6}{section*.13}%
+\contentsline {subsection}{3.e) \textbf {Lie Bracket and $\mathrm {ad}_\xi $:}}{6}{section*.14}%
+\contentsline {subsection}{Implementation and Unit Tests}{7}{section*.15}%
+\contentsline {section}{P4) $\text {SE}(()2)$ Kinematics Simulation}{11}{section*.17}%
+\contentsline {subsection}{4.a)}{11}{section*.18}%
+\contentsline {subsection}{4.b)}{11}{section*.19}%

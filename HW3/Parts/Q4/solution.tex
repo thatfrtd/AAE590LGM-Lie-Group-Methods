@@ -1,0 +1,57 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW2.tex]{subfiles}
+\begin{document}
+
+\subsection{4.a)}
+\underline{Question}: \\
+\textbf{Unicycle Model:} A unicycle has forward velocity $v$ and yaw rate $\omega$. In the body frame, there is no lateral motion $(v_y = 0)$ so $v_x = v$. \\
+\begin{itemize}
+    \item Write the body-frame twist for the unicycle
+    \item Expand the KE to derive the ODEs
+    \item For constant $v,\omega>0$: What shape is the trajectory? What is the radius?
+\end{itemize}
+\underline{Solution}: \\
+The body frame twist is
+\begin{gather*}
+    \boxed{\xi = \Vthree{v_x}{v_y}{\omega} = \Vthree{v}{0}{\omega}}
+\end{gather*}
+
+Deriving the equations of motion
+\begin{gather*}
+    \dot{X} = X\xi^\wedge = \SEtwosym{\theta}{x}{y}\setwo{\omega}{v}{0} = \Mthree{-\omega\sin(\theta)}{-\omega\cos(\theta)}{v\cos(\theta)}{\omega\cos(\theta)}{-\omega\sin(\theta)}{v\sin(\theta)}{0}{0}{0} \\
+    \implies \dot{x} = v_x\cos(\theta), \:\dot{y} = v\sin(\theta), \:\dot{\cos(\theta)} = -\omega\sin(\theta), \:\dot{\sin(\theta)} = \omega\cos(\theta) \\
+    \dot{\cos(\theta)} = -\sin(\theta)\dot{\theta} = -\omega\sin(\theta) \implies \dot{\theta} = \omega \\
+    \dot{\sin(\theta)} = \cos(\theta)\dot{\theta} = \omega\cos(\theta) \implies \dot{\theta} = \omega \\
+    \boxed{\dot{x} = v\cos(\theta), \: \dot{y} = v\sin(\theta), \: \dot{\theta} = \omega}
+\end{gather*}
+
+For constant $v, \omega > 0$ the trajectory follows a circle with a radius found by computing the following integral
+\begin{gather*}
+    r = \int_0^{\frac{\pi}{2\omega}}v\cos(\omega t)\text{d}t = \frac{v}{\omega}\int_0^{\frac{\pi}{2}}\cos(\theta)\text{d}t = \frac{v}{\omega}
+\end{gather*}
+The trajectory is a circle with radius $\frac{v}{\omega}$
+
+\subsection{4.b)}
+\underline{Question}: \\
+\\
+\underline{Solution}: \\
+
+\lstinputlisting[language=Python,caption={SE(2) Integrator Implementation}, inputpath=../../../Code/SE2]{SE2_integrators.py}
+\lstinputlisting[language=Python,caption={SE(2) Integrator Test}]{AAE590LGM_HW2_Q4.py}
+
+\begin{figure}[H]
+    \caption{Trajectories of both integrators for unicycle}
+    \centering
+    \includegraphics[width=0.7\linewidth]{AAE590LGM_HW2_Q4_traj.png}
+\end{figure}
+
+\begin{figure}[H]
+    \caption{Error over time for both integrators}
+    \centering
+    \includegraphics[width=0.7\linewidth]{AAE590LGM_HW2_Q4_error.png}
+\end{figure}
+
+The error between the exact propagation using the exponential map and the Lie group integrator at the final time is 1.8289049996250573e-14. This 
+means that within numerical precision they are the same whic makes sense given that the Lie group integrator uses the exponential map.
+
+\end{document}

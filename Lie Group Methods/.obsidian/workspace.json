@@ -1,0 +1,806 @@
+{
+  "main": {
+    "id": "f778fc5ab5afc5b0",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb282a3719a41fee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e246443fef3f869c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IEKF.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "IEKF"
+            }
+          },
+          {
+            "id": "c19f0f1715fcbdb5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Equivariant Filters.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Equivariant Filters"
+            }
+          },
+          {
+            "id": "efc0f14dc9309a71",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Geometric Control.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Geometric Control"
+            }
+          },
+          {
+            "id": "875b380ee8b3ffae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Group Affine.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Group Affine"
+            }
+          },
+          {
+            "id": "144a0039db6124af",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Special Orthogonal Group.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Special Orthogonal Group"
+            }
+          },
+          {
+            "id": "55c6f4ba5e6cf728",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Special Euclidean Group.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Special Euclidean Group"
+            }
+          },
+          {
+            "id": "36998c7229b9f829",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Extended Pose Group.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Extended Pose Group"
+            }
+          },
+          {
+            "id": "411e7a0aebf913cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Adjoint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Adjoint"
+            }
+          },
+          {
+            "id": "8ca9bfae00e83ae8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Coadjoint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Coadjoint"
+            }
+          },
+          {
+            "id": "91ba19dc0986b330",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Matrix Lie Group.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Matrix Lie Group"
+            }
+          },
+          {
+            "id": "529ae2e5a0b83eda",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Adjoint Map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Adjoint Map"
+            }
+          },
+          {
+            "id": "f25cf70e4137d313",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lie Bracket.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lie Bracket"
+            }
+          },
+          {
+            "id": "d94b88faf86001d4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Left Invariant.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Left Invariant"
+            }
+          },
+          {
+            "id": "ac6af505a2472dcb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Right Invariant.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Right Invariant"
+            }
+          },
+          {
+            "id": "ee6f4e6ea856a067",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Homeomorphic.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Homeomorphic"
+            }
+          },
+          {
+            "id": "0cc2a89ef39469d4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Homeomorphic.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Homeomorphic"
+            }
+          },
+          {
+            "id": "685b4f45b056adea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Quaternion Unwinding Problem.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Quaternion Unwinding Problem"
+            }
+          },
+          {
+            "id": "1d5a9a751b95e7b9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exponential Map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Exponential Map"
+            }
+          },
+          {
+            "id": "c183b5ac9aa333c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Logarithmic Map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Logarithmic Map"
+            }
+          },
+          {
+            "id": "a5fb80db2c8b55d7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.4"
+            }
+          },
+          {
+            "id": "520017fcf48d2d75",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Group.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Group"
+            }
+          },
+          {
+            "id": "1c98a330fbe3cab2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ado's Theorem.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ado's Theorem"
+            }
+          },
+          {
+            "id": "577e64fc9ac24ccc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Manifold.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Manifold"
+            }
+          },
+          {
+            "id": "24781505dbc66307",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chart.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Chart"
+            }
+          },
+          {
+            "id": "2bfbcb86c3550cbd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Atlas.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Atlas"
+            }
+          },
+          {
+            "id": "21798a222c8b5b64",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tangent Space.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tangent Space"
+            }
+          },
+          {
+            "id": "558755f45b61239b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lie Group.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lie Group"
+            }
+          },
+          {
+            "id": "2d44725ac2e8a024",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lie Algebra.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lie Algebra"
+            }
+          },
+          {
+            "id": "9eb53135758f077c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Simply Connected.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Simply Connected"
+            }
+          },
+          {
+            "id": "b86e74e3002d0aca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Group Action.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Group Action"
+            }
+          },
+          {
+            "id": "823dfeffd80c55eb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Adjoint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Adjoint"
+            }
+          },
+          {
+            "id": "87c345d25f34137b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Baker-Campbell-Hausdorff Formula.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Baker-Campbell-Hausdorff Formula"
+            }
+          },
+          {
+            "id": "43df576a34c8e9a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Left Jacobian.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Left Jacobian"
+            }
+          },
+          {
+            "id": "bc674f69f44f77de",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Group Action.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Group Action"
+            }
+          },
+          {
+            "id": "36e60494f6a20157",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PS1 Quiz.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PS1 Quiz"
+            }
+          },
+          {
+            "id": "82cb9bb7e928e318",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Adjoint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Adjoint"
+            }
+          },
+          {
+            "id": "c7f91a2d31f66306",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Adjoint.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Adjoint"
+            }
+          },
+          {
+            "id": "c6e27f2abf53ca19",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pullback.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pullback"
+            }
+          },
+          {
+            "id": "71f8433d2c9804ca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pullback.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pullback"
+            }
+          },
+          {
+            "id": "86f979c6ba09faa7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Group Affine.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Group Affine"
+            }
+          },
+          {
+            "id": "344cab6e5f24e245",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Maur-Cartan Form.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Maur-Cartan Form"
+            }
+          },
+          {
+            "id": "d1bc25a2c74b0c3e",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Papers/An_Error-State_Model_Predictive_Control_on_Connected_Matrix_Lie_Groups_for_Legged_Robot_Control.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "An_Error-State_Model_Predictive_Control_on_Connected_Matrix_Lie_Groups_for_Legged_Robot_Control"
+            }
+          }
+        ],
+        "currentTab": 41
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "61355ff5b24785df",
+    "type": "split",
+    "children": [
+      {
+        "id": "37a6507f30a664ae",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a6f4ab3ac5f3c6ff",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "21f60f2d2c9d1dc6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d13885c04cfbd9ff",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "761f01cfc3ebfe1e",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f5209bfc18a6099",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d091119ecdd1725c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Logarithmic Map.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Logarithmic Map"
+            }
+          },
+          {
+            "id": "910528ffc3e44247",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Logarithmic Map.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Logarithmic Map"
+            }
+          },
+          {
+            "id": "4a992776c5aba8e1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "70f2ce6bd0b76234",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "702b4ad80ab30736",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Logarithmic Map.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Logarithmic Map"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "d1bc25a2c74b0c3e",
+  "lastOpenFiles": [
+    "Papers/Log-Linear Dynamic Inversion Control With Provable Safety Guarant.pdf",
+    "Papers/An_Error-State_Model_Predictive_Control_on_Connected_Matrix_Lie_Groups_for_Legged_Robot_Control.pdf",
+    "Log Linear Dynamic Inversion.md",
+    "Maur-Cartan Form.md",
+    "Notation.md",
+    "SE(2) Aircraft.md",
+    "Simply Connected.md",
+    "Right Jacobian.md",
+    "Papers/euler-poincare.pdf",
+    "Papers/Lie group integration and control of vehicles.pdf",
+    "Papers/euler-poincare-semidirectproduct.pdf",
+    "Papers/1-s2.0-S0005109814003112-main.pdf",
+    "Papers",
+    "PID on Lie Group.md",
+    "Group Affine.md",
+    "Group Action.md",
+    "Lecture Notes/intro.pdf",
+    "Lecture Notes/group_affine.pdf",
+    "Lecture Notes/differentials.pdf",
+    "HW2/Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png",
+    "HW2/Parts/Q4/AAE590LGM_HW2_Q4_error.png",
+    "HW2/Parts/Q4/AAE590LGM_HW2_Q4_traj.png",
+    "AAE590LGM_HW2_Q4_error.png",
+    "AAE590LGM_HW2_Q4_traj.png",
+    "Left Invariant.md",
+    "Mixed Invariant.md",
+    "PS1 Quiz.md",
+    "Right Invariant.md",
+    "Matrix Lie Group.md",
+    "Adjoint.md",
+    "env/Lib/site-packages/matplotlib/mpl-data/sample_data/Minduka_Present_Blue_Pack.png",
+    "env/Lib/site-packages/matplotlib/mpl-data/sample_data/logo2.png",
+    "env/Lib/site-packages/matplotlib/mpl-data/sample_data/grace_hopper.jpg",
+    "env/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect_large.png",
+    "env/Lib/site-packages/matplotlib/mpl-data/images/zoom_to_rect.svg",
+    "env/Lib/site-packages/numpy/random/LICENSE.md",
+    "env/Lib/site-packages/pyparsing/ai/best_practices.md",
+    "env/Lib/site-packages/pip-26.0.dist-info/licenses/src/pip/_vendor/idna/LICENSE.md",
+    "Equivariant Filters.md",
+    "Covector.md",
+    "Chart.md",
+    "Baker-Campbell-Hausdorff Formula.md",
+    "Ado's Theorem.md",
+    "Quaternion Unwinding Problem.md",
+    "Pushforward.md"
+  ]
+}

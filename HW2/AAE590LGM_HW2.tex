@@ -1,0 +1,194 @@
+\documentclass[titlepage]{article}
+\usepackage{graphicx} 
+%\usepackage{fullpage}
+\usepackage{multirow}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage[shortlabels]{enumitem}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{soul}
+\usepackage{listings}
+\usepackage{subcaption}
+%\usepackage{dsfont}
+\usepackage{xspace}
+\usepackage[justification=centering]{caption}
+\usepackage{tikz}
+\usetikzlibrary{3d}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\usepackage{empheq}
+\usepackage{makecell}
+\usepackage[english]{babel}
+\usepackage{xr}
+%\usepackage{titletoc}
+\usepackage{zref}
+\usepackage{algorithm}
+\usepackage[framed,numbered]{matlab-prettifier}
+\usepackage{algpseudocode}
+\usepackage{cleveref}
+%\usepackage{chngcntr}
+\usepackage[sort&compress,numbers]{natbib}
+\bibliographystyle{Bibliography/new-aiaa}
+\usepackage[
+    starfontserif % comment for sans glyphs
+    ]{starfont}
+\usepackage{amsmath}
+\usepackage{subfiles}
+\usepackage[margin=1in]{geometry}
+
+\DeclareSymbolFont{starfontsym}{OT1}{sts}{m}{n}
+\DeclareMathSymbol{\mathSun}{\mathord}{starfontsym}{115}
+\DeclareMathSymbol{\mathMercury}{\mathord}{starfontsym}{102}
+\DeclareMathSymbol{\mathVenus}{\mathord}{starfontsym}{103}
+\DeclareMathSymbol{\mathTerra}{\mathord}{starfontsym}{76}
+\DeclareMathSymbol{\mathvarTerra}{\mathord}{starfontsym}{108}
+\DeclareMathSymbol{\mathMoon}{\mathord}{starfontsym}{100}
+\DeclareMathSymbol{\mathvarMoon}{\mathord}{starfontsym}{97}
+\DeclareMathSymbol{\mathMars}{\mathord}{starfontsym}{104}
+\DeclareMathSymbol{\mathJupiter}{\mathord}{starfontsym}{106}
+\DeclareMathSymbol{\mathSaturn}{\mathord}{starfontsym}{83}
+\DeclareMathSymbol{\mathUranus}{\mathord}{starfontsym}{70}
+\DeclareMathSymbol{\mathvarUranus}{\mathord}{starfontsym}{65}
+\DeclareMathSymbol{\mathNeptune}{\mathord}{starfontsym}{71}
+\DeclareMathSymbol{\mathPluto}{\mathord}{starfontsym}{74}
+\DeclareMathSymbol{\mathvarPluto}{\mathord}{starfontsym}{72}
+
+%Commands
+\newcommand*\widefbox[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+\newcommand*\wwidefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+\newcommand{\skipline}{\vspace{\baselineskip}}
+\newcommand{\lc}{\left(}
+\newcommand{\rc}{\right)}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+\newcommand{\bm}[1]{\mathbf{#1}}
+\newcommand{\fdiff}[2][]{\frac{\prescript{#1}{}{\mathrm{d}}}{\mathrm{d} #2}} % Defines a command for a frame derivative
+\newcommand{\fvar}[2]{\prescript{#1}{}{#2}}
+\newcommand{\R}[1][]{\mathbb{R}^{#1}}
+\newcommand{\N}[1][]{\mathbb{N}^{#1}}
+\newcommand{\Z}[1][]{\mathbb{Z}^{#1}}
+\newcommand{\matlab}{\textsc{Matlab}\xspace}
+\newcommand{\ta}{\theta^*}
+\newcommand{\degree}{^\circ}
+\newcommand{\bbar}[1]{\overline{\overline{#1}}}
+\newcommand{\Vtwo}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+\newcommand{\Vthree}[3]{\begin{pmatrix}#1 \\ #2 \\ #3 \end{pmatrix}}
+\newcommand{\VthreeR}[3]{\begin{pmatrix}#1 & #2 & #3 \end{pmatrix}}
+\newcommand{\Mthree}[9]{\begin{pmatrix}#1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9 \end{pmatrix}}
+\newcommand{\MthreeTp}[9]{\begin{pmatrix}#1 & #4 & #7 \\ #2 & #5 & #8 \\ #3 & #6 & #9 \end{pmatrix}}
+\newcommand{\SEtwo}[6]{\Mthree{#1}{#2}{#5}{#3}{#4}{#6}{0}{0}{1}}
+\newcommand{\SEtwosym}[3]{\Mthree{\cos(#1)}{-\sin(#1)}{#2}{\sin(#1)}{\cos(#1)}{#3}{0}{0}{1}}
+\newcommand{\setwo}[3]{\Mthree{0}{-#1}{#2}{#1}{0}{#3}{0}{0}{0}}
+\newcommand{\evl}[2]{\biggr|_{#1}^{#2}}
+\newcommand{\Partial}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\V}[2][]{\mathbf{#2}_{#1}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kg}{\text{kg}}
+\newcommand{\Log}[1]{\text{Log}(#1)}
+\newcommand{\Exp}[1]{\text{Exp}(#1)}
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\ad}{\mathrm{ad}}
+\newcommand{\SO}[1]{\text{SO}(#1)}
+\newcommand{\soa}[1]{\mathfrak{so}(#1)}
+\newcommand{\SE}[1]{\text{SE}(#1)}
+\newcommand{\sea}[1]{\mathfrak{se}(#1)}
+
+\newcommand{\neworrenewcommand}[1]{\providecommand{#1}{}\renewcommand{#1}}
+
+\newcommand{\dyadf}[9]{\neworrenewcommand{\ffoo}[1]{#2{#1_1}{#1_1} #3{#1_1}{#1_2} #4#1_1#1_3 #5#1_2#1_1 #6#1_2#1_2 #7#1_2#1_3 #8#1_3#1_1 #9#1_3#1_2 ##1#1_3#1_3}\ffoo}
+
+% Define a custom color
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+% Define a custom style
+\lstdefinestyle{myStyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    identifierstyle=\color{blue},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    keepspaces=true,                 
+    numbers=left,       
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+}
+
+% Use \lstset to make myStyle the global default
+\lstset{style=myStyle}
+
+\allowdisplaybreaks
+\numberwithin{equation}{section}
+\setcounter{secnumdepth}{0}
+\renewcommand\lstlistlistingname{Code Listing}
+\renewcommand\lstlistingname{Code Snippet}
+\def\lstlistingautorefname{Alg.}
+
+%\MakeOuterQuote{"}
+
+%Managing package overlap
+\AtBeginDocument{\RenewCommandCopy\qty\quantity}
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+
+%Margins
+\topmargin = -0.3in
+\pagestyle{fancy}
+\lhead{Travis Hastreiter}
+\chead{AAE 590LGM: Problem Set 2}
+\headsep=0.12in
+\renewcommand\headrulewidth{0.4pt}
+\setlength{\headheight}{12.0pt}
+
+%Title Page
+\title{\textbf{AAE 590LGM: Lie Group Methods} \\ Problem Set 2}
+
+\author{Travis Hastreiter}
+\date{10 February, 2026}
+
+%Begin Document
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\lstlistoflistings
+\newpage
+
+%Problem 1
+\section{P1) Normal Subgroups and Quotient Groups}
+\stepcounter{section}
+\subfile{Parts/Q1/question.tex}
+\subfile{Parts/Q1/solution.tex}
+\clearpage
+
+\section{P2) SE(2) and the Semi-Direct Product}
+\stepcounter{section}
+\subfile{Parts/Q2/question.tex}
+\subfile{Parts/Q2/solution.tex}
+\clearpage
+
+\section{P3) SE(2) Lie Algebra, Exp/Log, and Adjoint}
+\stepcounter{section}
+\subfile{Parts/Q3/question.tex}
+\subfile{Parts/Q3/solution.tex}
+\clearpage
+
+\section{P4) $\SE(2)$ Kinematics Simulation}
+\stepcounter{section}
+\subfile{Parts/Q4/question.tex}
+\subfile{Parts/Q4/solution.tex}
+\clearpage
+
+\end{document}

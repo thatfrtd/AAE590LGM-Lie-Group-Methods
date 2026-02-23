@@ -1,0 +1,28 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW2.tex]{subfiles}
+\begin{document}
+
+\subsection{2.a) \textbf{Matrix Representation:}}
+\underline{Question}: \\
+Write $X \in \SE(2)$ as a $3 \times 3$ matrix:
+    \[
+    X = \begin{bmatrix} R & \bm{t} \\ \bm{0}^T & 1 \end{bmatrix}, \quad R \in \SO{2}, \; \bm{t} \in \R[2]
+    \]
+
+    \textbf{Tuple notation:} We can also write $X = (\bm{t}, R)$ as a compact tuple. The correspondence is:
+    \[
+    (\bm{t}, R) \;\longleftrightarrow\; \begin{bmatrix} R & \bm{t} \\ \bm{0}^T & 1 \end{bmatrix}
+    \]
+    We order as $(\bm{t}, R)$ (translation first) to match the semi-direct product $\mathbb{T}(2) \rtimes \SO{2}$ convention. Both notations represent the same rigid motion: rotate by $R$, then translate by $\bm{t}$ (in the world frame).
+    \begin{itemize}
+        \item Derive the composition $X_1 X_2$ and inverse $X^{-1}$ formulas using block matrix multiplication. You don't need to expand $2 \times 2$ blocks---leave products like $R_1 R_2$ as is.
+        \item Express your results in tuple form: $(\bm{t}_1, R_1) \cdot (\bm{t}_2, R_2) = (?, ?)$ and $(\bm{t}, R)^{-1} = (?, ?)$.
+        \item Implement \texttt{se2\_compose(X1, X2)} and \texttt{se2\_inverse(X)}.
+    \end{itemize}
+
+    \textit{Check your work:} $(\bm{t}_1, R_1) \cdot (\bm{t}_2, R_2) = (\bm{t}_1 + R_1 \bm{t}_2, \; R_1 R_2)$ and $(\bm{t}, R)^{-1} = (-R^T \bm{t}, \; R^T)$. \\
+\underline{Solution}: \\
+Code snippet 1 shows the implementation of \texttt{se2\_compose(X1, X2)} and \texttt{se2\_inverse(X)}
+
+
+\end{document}

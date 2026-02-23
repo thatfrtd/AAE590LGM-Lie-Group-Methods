@@ -1,0 +1,63 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW1.tex]{subfiles}
+\begin{document}
+
+\subsection{1.a)}
+\underline{Question}: \\
+For matrices $A, B \in \R[n\times n]$, prove that $(AB)^T = B^T A^T$ \\
+\underline{Solution}: \\
+\begin{gather*}
+    (AB)_{ij} = \sum_{k = 1}^{n}A_{ik}B_{kj} \\
+    \text{Transpose swaps the indices} \\
+    \implies (AB)^T_{ij} = \sum_{k = 1}^{n}A_{jk}B_{ki} = \sum_{k = 1}^{n}B_{ki}A_{jk} = \sum_{k = 1}^{n}B^T_{ik}A^T_{kj} = B^T A^T \\
+    \therefore (AB)^T = B^T A^T
+\end{gather*}
+
+\subsection{1.b)}
+\underline{Question}: \\
+A matrix $Q$ is orthogonal if $Q^T Q=I$. Prove that if $Q$ is orthogonal, then $|\text{det}(Q)| = 1$. \\
+\underline{Solution}: \\
+\begin{gather*}
+    \text{for any matrix, } \det{Q^T} = \det{Q}\\
+    1 = \text{det}(I) = \text{det}(Q^T Q) = \text{det}(Q^T)\text{det}(Q) = \text{det}(Q)^2 \\
+    \therefore \text{det}(Q) = \pm 1 \\
+    \Leftrightarrow |\text{det}(Q)| = 1
+\end{gather*}
+
+\subsection{1.c)}
+\underline{Question}: \\
+Prove that the product of two orthogonal matrices is orthogonal \\
+\underline{Solution}: \\
+\begin{gather*}
+    A^T A = I = B^T B \\
+    B^TA^T A = B^T \\
+    B^TA^T AB = B^T B = I \\
+    (AB)^T AB = I \\
+    \therefore AB \text{ is orthogonal}
+\end{gather*}
+
+\subsection{1.d)}
+\underline{Question}: \\
+Prove that $\text{tr}(AB) = \text{tr}(BA)$ for any $A \in \R[m\times n]$ and $B \in \R[n\times m]$ \\
+\underline{Solution}: \\
+\begin{gather*}
+    (AB)_{ij} = \sum_{k = 1}^{n}A_{ik}B_{kj} \\
+    (AB)_{ll} = \sum_{k = 1}^{n}A_{lk}B_{kl} \\
+    \text{tr}(AB) = \sum{l = 1}^n\sum_{k = 1}^{n}A_{lk}B_{kl} = \sum_{l = 1}^n\sum_{k = 1}^{n}A_{kl}B_{lk} \\
+    \text{tr}(BA) = \sum{l = 1}^n\sum_{k = 1}^{n}B_{lk}A_{kl} = \text{tr}(AB) \\
+    \therefore \text{tr}(AB) = \text{tr}(BA)
+\end{gather*}
+
+\subsection{1.e)}
+\underline{Question}: \\
+Show that for any skew-symmetric matrix, the diagonal elements must be zero \\
+\underline{Solution}: \\
+\begin{gather*}
+    S^T = -S \\
+    S_{ij}^T = -S_{ij} \\
+    \text{look at only diagonal elements} S_{ii}^T = -S_{ii} \Leftrightarrow S_{ii} = -S_{ii} \\
+    S_{ii} = -S_{ii} \text{ is only possible if } S_{ii} = 0 \\
+    \therefore \text{ the diagonal elements are } 0
+\end{gather*}
+
+\end{document}

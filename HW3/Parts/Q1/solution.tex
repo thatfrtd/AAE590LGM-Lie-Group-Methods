@@ -1,0 +1,41 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW2.tex]{subfiles}
+\begin{document}
+
+\subsection{1.a) \textbf{Definition and Intuition:}}
+\underline{Question}: \\
+    A subgroup $N \leq G$ is \textbf{normal} (written $N \trianglelefteq G$) if $gNg^{-1} = N$ for all $g \in G$.
+    \begin{itemize}
+        \item Explain why every subgroup of an abelian group is automatically normal.
+        \item For non-abelian groups, conjugation can ''twist'' a subgroup. Give geometric intuition: if $H$ is a set of translations and $g$ is a rotation, what does $gHg^{-1}$ represent?
+    \end{itemize}
+\underline{Solution}: \\
+
+\subsection{1.b) \textbf{A Matrix Group Example:}}
+\underline{Question}: \\
+Consider the determinant map $\det: \mathrm{GL}(2, \R) \to \R[*]$ (where $\R[*] = \R \setminus \{0\}$ under multiplication).
+    \begin{itemize}
+        \item Verify $\det$ is a homomorphism: $\det(AB) = \det(A) \det(B)$.
+        \item What is $\ker(\det)$? (This group has a name---what is it?)
+        \item What information about a matrix is ''forgotten'' when we apply $\det$? What's preserved?
+    \end{itemize}
+\underline{Solution}: \\
+
+\subsection{1.c) \textbf{First Isomorphism Theorem (Preview):}}
+\underline{Question}: \\
+For a homomorphism $\phi: G \to H$:
+\begin{itemize}
+    \item \textbf{Kernel:} $\ker(\phi) = \{g \in G : \phi(g) = e_H\}$ (elements mapped to identity)
+    \item \textbf{Image (Range):} $\mathrm{im}(\phi) = \{\phi(g) : g \in G\}$ (elements that $\phi$ ''hits'')
+\end{itemize}
+
+\textbf{First Isomorphism Theorem:} $G/\ker(\phi) \cong \mathrm{im}(\phi)$.
+
+\textit{In words:} quotienting by what $\phi$ ''kills'' gives you what $\phi$ ''sees.''
+\begin{itemize}
+    \item For $\SE(2)$: if we define $\pi: \SE(2) \to \SO(2)$ by $\pi(\bm{t}, R) = R$, what is $\ker(\pi)$?
+    \item What does the First Isomorphism Theorem tell us about $\SE(2)/\ker(\pi)$?
+\end{itemize}
+\underline{Solution}: \\
+
+\end{document}

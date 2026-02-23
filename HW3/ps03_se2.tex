@@ -1,0 +1,414 @@
+% Problem Set 03: Group Affine Systems, SE(2) & SE_2(2)
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{bm}
+
+% Custom commands
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\se}{\mathfrak{se}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\SEt}{\mathrm{SE}_2}
+\newcommand{\set}{\mathfrak{se}_2}
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\ad}{\mathrm{ad}}
+\newcommand{\Exp}{\mathrm{Exp}}
+\newcommand{\Log}{\mathrm{Log}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\g}{\mathfrak{g}}
+
+\title{AAE 590: Problem Set 03\\Group Affine Systems, $\SE(2)$ Kinematics, and $\SEt(2)$}
+\author{}
+\date{Due: See Brightspace}
+
+\begin{document}
+\maketitle
+
+\section*{Instructions}
+\begin{itemize}
+    \item Show all work for full credit. Derivations should be clear and complete.
+    \item \textbf{Submit a single PDF to Gradescope} containing:
+    \begin{itemize}
+        \item Derivations (handwritten and scanned, or typed in \LaTeX)
+        \item Python code (as monospace text, screenshots, or \texttt{listings}/\texttt{minted} in \LaTeX)
+        \item All plots and numerical verification results
+    \end{itemize}
+    \item You may use AI tools, but you must understand your solutions (validated via in-class quizzes).
+    \item \textbf{Prerequisite:} You should have working implementations of \texttt{se2\_wedge}, \texttt{se2\_vee}, \texttt{se2\_exp}, \texttt{se2\_log}, \texttt{se2\_compose}, \texttt{se2\_inverse}, and \texttt{se2\_Ad} from PS02. You may reuse your PS02 Jacobian/Taylor helpers for the $\SEt(2)$ Exp/Log and Ad/ad implementations.
+    \item Typical time: $\sim$8--12 hours depending on how much of PS02 is already working.
+\end{itemize}
+
+%--- Notation and Conventions ---
+\begin{center}
+\fbox{\parbox{0.92\textwidth}{
+\textbf{Notation and Conventions (used throughout this assignment):}
+\begin{itemize}[nosep,leftmargin=*]
+    \item $X \in \SE(2)$: $\begin{bmatrix} R(\theta) & \bm{t} \\ \bm{0}^T & 1 \end{bmatrix}$, \quad
+          $X \in \SEt(2)$: $\begin{bmatrix} R(\theta) & \bm{v} & \bm{p} \\ \bm{0}^T & 1 & 0 \\ \bm{0}^T & 0 & 1 \end{bmatrix}$.
+          In both cases, $R(\theta)$ maps \textbf{body $\to$ world}.
+    \item $\xi^\wedge$: vector $\to$ matrix (\texttt{wedge}). \quad $(\cdot)^\vee$: matrix $\to$ vector (\texttt{vee}).
+    \item $\Exp(\xi^\wedge)$: Lie group exponential (closed-form). \quad $\Log(X)^\vee$: its inverse.
+    \item Heading $\theta$ is CCW-positive. For $\SE(2)$: $\dot{\bm{p}} = R\bm{v}_{\mathrm{body}}$. For $\SEt(2)$: $\dot{\bm{p}} = \bm{v}$ (world-frame velocity).
+    \item $\dot{X} = X\xi^\wedge$: left-invariant (body-frame twist). \quad $\dot{X} = \xi^\wedge X$: right-invariant (world-frame twist).
+\end{itemize}
+}}
+\end{center}
+
+%==============================================================================
+\section*{Problem 1: Fixed-Wing Velocity Kinematics on $\SE(2)$ (20 points)}
+%==============================================================================
+
+A fixed-wing aircraft in coordinated (no-sideslip) flight at constant altitude can be modeled as a rigid body on $\SE(2)$, where the state $X \in \SE(2)$ encodes position $(x, y)$ and heading $\theta$. At this level, velocity and yaw rate are treated as direct control inputs.
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item (8 pts) \textbf{Velocity-Level Kinematic Model:}
+
+    In coordinated flight, the body-frame twist is:
+    \[
+        \xi = \begin{bmatrix} V \\ 0 \\ \omega \end{bmatrix}
+    \]
+    where $V > 0$ is the airspeed and $\omega$ is the yaw rate. The kinematic equation is $\dot{X} = X \xi^\wedge$ (left-invariant on $\SE(2)$).
+
+    \begin{itemize}
+        \item Expand $\dot{X} = X \xi^\wedge$ into scalar ODEs for $\dot{\theta}$, $\dot{x}$, and $\dot{y}$.
+        \item Explain the non-holonomic constraint $v_y = 0$: what physical assumption does it encode?
+        \item \textbf{Mixed-invariant decomposition:} Write the same dynamics as $\dot{X} = MX + XN$ with constant $M, N \in \se(2)$ (both proper Lie algebra elements). For the standard unicycle, $M = 0$ and $N = \xi^\wedge$. Explain why any constant world-frame twist would contribute a non-zero $M$.
+    \end{itemize}
+    \smallskip
+    \noindent\textit{Remark:} This ``clean'' form (both $M, N \in \g$) will contrast with $\SEt(2)$ in Problem~4, where the $\dot{\bm{p}} = \bm{v}$ coupling requires a coupling matrix $C \notin \g$.
+
+    \item (12 pts) \textbf{Bank-to-Turn, Trajectory, and Simulation:}
+
+    In a coordinated level turn, centripetal force balance gives $\omega = g \tan\phi / V$, where $g = 9.81$ m/s$^2$ and $\phi$ is the bank angle. The required bank angle for a desired turn rate is $\phi = \arctan(\omega V / g)$, and the turning radius is $r = V / |\omega| = V^2 / (g \tan\phi)$.
+
+    A reference trajectory can be defined as a \textbf{sequence of constant Lie algebra elements} (body-frame twists), each applied for a specified duration. Each segment produces a geodesic on $\SE(2)$.
+
+    Use the following race-track trajectory, defined as a table of segments $(\xi_i, T_i)$, where each twist is $\xi_i = (V_i, \; v_{y,i}, \; \omega_i)^T$:
+    \begin{center}
+    \small
+    \begin{tabular}{c|ccc|c}
+        Segment & $V_i$ (m/s) & $v_{y,i}$ & $\omega_i$ (rad/s) & $T_i$ (s) \\ \hline
+        0 & 20 & 0 & 0 & 10.0 \\
+        1 & 15 & 0 & 0.30 & 5.24 \\
+        2 & 20 & 0 & 0 & 5.0 \\
+        3 & 15 & 0 & 0.30 & 5.24 \\
+        4 & 20 & 0 & 0 & 10.0 \\
+        5 & 15 & 0 & 0.30 & 5.24 \\
+        6 & 20 & 0 & 0 & 5.0 \\
+        7 & 15 & 0 & 0.30 & 5.24 \\
+    \end{tabular}
+    \end{center}
+    \textit{Notes:} $v_y$ is included for completeness; assume $v_y = 0$ (coordinated flight) throughout. The duration $T = 5.24 \approx (\pi/2)/0.3$ gives a $90^\circ$ turn at $\omega = 0.3$ rad/s.
+
+    \begin{itemize}
+        \item \textbf{Plot} turning radius $r(V) = V^2 / (g \tan\phi_0)$ vs.\ $V$ for $V \in [10, 40]$ m/s with $\phi_0 = 30^\circ$.
+        \item Propagate the waypoints: $X_{i+1} = X_i \cdot \Exp((T_i \xi_i)^\wedge)$, starting from $X_0 = I$.
+        \item To plot a smooth curve, sample within each segment: $X(t) = X_i \cdot \Exp((t_{\text{seg}} \xi_i)^\wedge)$ for $t_{\text{seg}} \in [0, T_i]$.
+        \item \textbf{Plot} the reference trajectory in the $(x,y)$ plane with heading arrows at each waypoint and segment numbers.
+        \item \textbf{Feasibility check:} For each turning segment, compute the required bank angle $\phi_i = \arctan(\omega_i V_i / g)$. Verify $|\phi_i| \leq 45^\circ$.
+        \item \textbf{Simulate:} Implement a loop that propagates $X_{k+1} = X_k \cdot \Exp((\Delta t \, \xi)^\wedge)$ with a \textbf{constant} twist (use $\Delta t = 0.01$ s). Run for 10~s with each of: $\xi = (20, 0, 0)^T$ (straight) and $\xi = (15, 0, 0.3)^T$ (turn). Verify you get a straight line and a circle, respectively.
+    \end{itemize}
+
+\end{enumerate}
+
+%==============================================================================
+\section*{Problem 2: Group Affine Systems and Mixed Invariant Vector Fields (25 points)}
+%==============================================================================
+
+Group affine systems are a class of nonlinear systems on Lie groups whose error dynamics are \textbf{autonomous}---they depend only on the error, not on the absolute state. This property is the theoretical foundation for both geometric control and invariant filtering.
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item (10 pts) \textbf{Deriving the Group Affine Property:}
+
+    Consider two trajectories $X(t)$ and $\hat{X}(t)$ evolving under the same input-dependent dynamics $\dot{X} = f_u(X)$ (same $u(t)$, different initial conditions). Define the left-invariant error $\eta = \hat{X}^{-1} X$.
+
+    \begin{itemize}
+        \item \textbf{Step 1:} Using the product rule and $\frac{d}{dt}(\hat{X}^{-1}) = -\hat{X}^{-1}\dot{\hat{X}}\hat{X}^{-1}$, show:
+        \[
+            \dot{\eta} = -\hat{X}^{-1} f_u(\hat{X}) \eta + \hat{X}^{-1} f_u(\hat{X}\eta)
+        \]
+
+        \item \textbf{Step 2:} Require that $\dot{\eta} = g(\eta)$ for some function $g$ (autonomous in $\eta$). Because the autonomy requirement must hold for \textit{all} $\hat{X}$, we can evaluate at $\hat{X} = I$ to identify $g(\cdot)$. Derive:
+        \[
+            g(\eta) = f_u(\eta) - f_u(I)\eta
+        \]
+
+        \item \textbf{Step 3:} Substitute $g(\eta)$ from Step~2 into the expression from Step~1. Require equality for \textbf{all} $\hat{X}$. Renaming $\hat{X} \to X$ and $\eta \to Y$, derive the \textbf{group affine property}:
+        \[
+            \boxed{f_u(XY) = f_u(X) Y + X f_u(Y) - X f_u(I) Y}
+        \]
+        This is not an arbitrary definition---it is \textit{derived} from requiring autonomous error dynamics.
+    \end{itemize}
+
+    \item (8 pts) \textbf{Mixed Invariant Vector Fields:}
+
+    \begin{itemize}
+        \item A \textbf{mixed invariant} vector field has the form:
+        \[
+            f_u(X) = \xi_R^\wedge X + X \xi_L^\wedge
+        \]
+        where the vectors $\xi_L(u), \xi_R(u)$ depend only on inputs $u$, \textbf{not} on state $X$, and $\xi_L^\wedge, \xi_R^\wedge$ denote their matrix forms.
+
+        \item \textbf{General parameterization:} Any mixed invariant system can be written as
+        \[
+            \dot{X} = (M - C) X + X (N + C)
+        \]
+        where $M, N$ encode the natural physics and $C$ is an arbitrary matrix that redistributes between left and right parts. The split is: $\xi_R^\wedge = M - C$ and $\xi_L^\wedge = N + C$. Note that $M + N = \xi_R^\wedge + \xi_L^\wedge$ is unchanged regardless of the choice of $C$.
+
+        \item \textbf{Special cases:}
+        \begin{itemize}
+            \item Left-invariant: $\xi_R^\wedge = 0$, so $\dot{X} = X \xi_L^\wedge$ (body-frame dynamics)
+            \item Right-invariant: $\xi_L^\wedge = 0$, so $\dot{X} = \xi_R^\wedge X$ (world-frame dynamics)
+        \end{itemize}
+
+        \item \textbf{Prove:} Mixed invariant $\Rightarrow$ group affine. Verify $f_u(XY) = f_u(X)Y + Xf_u(Y) - Xf_u(I)Y$ for $f_u(X) = \xi_R^\wedge X + X\xi_L^\wedge$. Show the algebraic cancellation.
+    \end{itemize}
+
+    \item (7 pts) \textbf{Autonomous Error Dynamics:}
+
+    \begin{itemize}
+        \item For the mixed invariant case $f_u(X) = \xi_R^\wedge X + X\xi_L^\wedge$, note that $f_u(I) = \xi_R^\wedge + \xi_L^\wedge$. Compute $g(\eta) = f_u(\eta) - f_u(I)\eta$. Show that:
+        \[
+            g(\eta) = \eta \xi_L^\wedge - \xi_L^\wedge \eta = [\eta, \xi_L^\wedge]
+        \]
+        Only the \textbf{left-invariant part} $\xi_L^\wedge$ drives the left-invariant error dynamics! The right-invariant part $\xi_R^\wedge$ cancels completely.
+
+        \item \textbf{Apply to Problem 1:} The $\SE(2)$ unicycle has $f_u(X) = X\xi^\wedge$ (left-invariant, $\xi_R^\wedge = 0$). Verify algebraically that this is group affine by showing $f_u(I) = \xi^\wedge$ and the key cancellation $f_u(X)Y - Xf_u(I)Y = 0$.
+
+        \item \textbf{Verify numerically:} Choose random $X, Y \in \SE(2)$ and a twist $\xi = (15, 0, 0.3)^T$. Compute both sides of the group affine equation and confirm agreement to machine precision.
+
+        \item \textbf{Error convention:} Explain why body-frame sensors (e.g., IMU) suggest left-invariant error $\eta = \hat{X}^{-1}X$, while world-frame sensors (e.g., GPS) suggest right-invariant error $\eta = X\hat{X}^{-1}$.
+    \end{itemize}
+
+\end{enumerate}
+
+%==============================================================================
+\section*{Problem 3: The Extended Pose Group $\SEt(2)$ (30 points)}
+%==============================================================================
+
+In lecture, $\SEt(3) = \SO(3) \ltimes (\R^3 \times \R^3)$ was introduced for 3D inertial navigation, combining orientation, velocity, and position into a single Lie group. You will now derive the \textbf{2D analog}, $\SEt(2) = \SO(2) \ltimes (\R^2 \times \R^2)$, which adds velocity to the $\SE(2)$ pose.
+
+\medskip
+\noindent\textbf{Matrix representation} ($4 \times 4$):
+\[
+    X = \begin{bmatrix} R & \bm{v} & \bm{p} \\ \bm{0}^T & 1 & 0 \\ \bm{0}^T & 0 & 1 \end{bmatrix} \in \R^{4 \times 4}
+\]
+where $R \in \SO(2)$ (orientation), $\bm{v} \in \R^2$ (velocity in world frame), and $\bm{p} \in \R^2$ (position in world frame). \textbf{Dimension:} 5 (1 rotation + 2 velocity + 2 position).
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item (5 pts) \textbf{Group Operations:}
+    \begin{itemize}
+        \item Derive the composition $X_1 X_2$ and inverse $X^{-1}$ using block matrix multiplication. Express in tuple form.
+        \item You should get:
+        \begin{align*}
+            (R_1, \bm{v}_1, \bm{p}_1) \cdot (R_2, \bm{v}_2, \bm{p}_2) &= (R_1 R_2, \; R_1 \bm{v}_2 + \bm{v}_1, \; R_1 \bm{p}_2 + \bm{p}_1) \\
+            (R, \bm{v}, \bm{p})^{-1} &= (R^T, \; -R^T \bm{v}, \; -R^T \bm{p})
+        \end{align*}
+        \item Note: $R$ acts on \textbf{both} $\bm{v}$ and $\bm{p}$ independently---this is the $\SO(2) \ltimes (\R^2 \times \R^2)$ semi-direct product structure.
+        \item Implement \texttt{se22\_compose(X1, X2)} and \texttt{se22\_inverse(X)}.
+    \end{itemize}
+
+    \item (3 pts) \textbf{Lie Algebra $\set(2)$:}
+
+    The Lie algebra elements are $4 \times 4$ matrices tangent at the identity:
+    \[
+        \xi^\wedge = \begin{bmatrix} \omega^\wedge & \bm{a} & \bm{b} \\ \bm{0}^T & 0 & 0 \\ \bm{0}^T & 0 & 0 \end{bmatrix} \in \R^{4 \times 4}
+    \]
+    where $\omega^\wedge = \begin{bmatrix} 0 & -\omega \\ \omega & 0 \end{bmatrix}$, $\bm{a} \in \R^2$ (maps to velocity column via Exp), and $\bm{b} \in \R^2$ (maps to position column via Exp).
+
+    \begin{itemize}
+        \item \textbf{Convention (used for all $\SEt(2)$ formulas in this assignment):} the Lie algebra vector is $\xi = (a_1, a_2, b_1, b_2, \omega)^T \in \R^5$ (translation-first ordering, matching the block structure of $X$).
+        \item Implement \texttt{se22\_wedge(xi)} and \texttt{se22\_vee(Xi)}.
+    \end{itemize}
+
+    \item (10 pts) \textbf{Exponential and Logarithm Maps:}
+
+    \begin{itemize}
+        \item \textbf{Derive} the exponential map from the power series $\Exp(\xi^\wedge) = I + \xi^\wedge + \frac{(\xi^\wedge)^2}{2!} + \cdots$
+
+        Show that $(\xi^\wedge)^k$ has the block structure:
+        \[
+            (\xi^\wedge)^k = \begin{bmatrix} (\omega^\wedge)^k & (\omega^\wedge)^{k-1}\bm{a} & (\omega^\wedge)^{k-1}\bm{b} \\ \bm{0}^T & 0 & 0 \\ \bm{0}^T & 0 & 0 \end{bmatrix} \quad \text{for } k \geq 1
+        \]
+
+        Summing the series gives:
+        \[
+            \boxed{\Exp(\xi^\wedge) = \begin{bmatrix} R(\omega) & V(\omega)\bm{a} & V(\omega)\bm{b} \\ \bm{0}^T & 1 & 0 \\ \bm{0}^T & 0 & 1 \end{bmatrix}}
+        \]
+        where $R(\omega)$ is the $\SO(2)$ exponential and $V(\omega) = \frac{\sin\omega}{\omega}I + \frac{1-\cos\omega}{\omega}J$ is the \textbf{same} $\SO(2)$ left Jacobian from $\SE(2)$. Both translation columns use $V(\omega)$ because $\bm{a}$ and $\bm{b}$ decouple (they only interact through $\omega$).
+
+        \item \textbf{Derive the logarithm:} Given $X = (R, \bm{v}, \bm{p})$, extract $\omega = \text{atan2}(R_{21}, R_{11})$, then $\bm{a} = V(\omega)^{-1}\bm{v}$ and $\bm{b} = V(\omega)^{-1}\bm{p}$. Use Taylor series for $\omega \approx 0$ (same as PS02).
+
+        \item Implement \texttt{se22\_exp(xi)} and \texttt{se22\_log(X)}. Verify round-trip: $\Exp\!\bigl((\Log(X))^\wedge\bigr) = X$ for at least 3 random $X \in \SEt(2)$ (i.e., \texttt{se22\_exp(se22\_log(X))} recovers $X$ to machine precision).
+    \end{itemize}
+
+    \item (10 pts) \textbf{Adjoint $\Ad_X$ and Small Adjoint $\ad_\xi$:}
+
+    \begin{itemize}
+        \item \textbf{Derive} $\Ad_X$ from $(\Ad_X \xi)^\wedge = X \xi^\wedge X^{-1}$. Compute by block matrix multiplication.
+
+        With translation-first ordering $\xi = (\bm{a}^T, \bm{b}^T, \omega)^T$, you should get:
+        \[
+            \Ad_X = \begin{bmatrix} R & \bm{0} & \bm{v}^\odot \\ \bm{0} & R & \bm{p}^\odot \\ \bm{0}^T & \bm{0}^T & 1 \end{bmatrix} \in \R^{5 \times 5}
+        \]
+        where $\bm{v}^\odot = \begin{bmatrix} v_y \\ -v_x \end{bmatrix} = -J\bm{v} \in \R^2$ with $J = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ (same $\odot$ operator as in $\SE(2)$ from PS02; the $2 \times 1$ column $\bm{v}^\odot$ fills the off-diagonal block so dimensions match).
+
+        \item \textbf{Derive} the Lie bracket $[\xi_1, \xi_2] = (\xi_1^\wedge \xi_2^\wedge - \xi_2^\wedge \xi_1^\wedge)^\vee$ and extract the $5 \times 5$ small adjoint:
+        \[
+            \ad_\xi = \begin{bmatrix} \omega^\wedge & \bm{0} & \bm{a}^\odot \\ \bm{0} & \omega^\wedge & \bm{b}^\odot \\ \bm{0}^T & \bm{0}^T & 0 \end{bmatrix}
+        \]
+
+        \item Note: $\bm{a}$ and $\bm{b}$ do \textbf{not} interact directly---only through $\omega$. This is the same pattern as $\SEt(3)$ from lecture.
+
+        \item Implement \texttt{se22\_Ad(X)} and \texttt{se22\_ad(xi)}. Verify numerically (for at least 3 random inputs each):
+        \begin{itemize}
+            \item $\Ad_{X_1 X_2} = \Ad_{X_1} \Ad_{X_2}$
+            \item $[\xi_1, \xi_2] = \ad_{\xi_1} \xi_2$
+        \end{itemize}
+    \end{itemize}
+
+    \item (2 pts) \textbf{Comparison Table:}
+
+    Fill in the ``?'' entries. The $\SO(2)$ column is provided as a worked example showing what each row means.
+
+    \begin{center}
+    \small
+    \begin{tabular}{l|c|c|c|c}
+        & $\SO(2)$ & $\SE(2)$ & $\SEt(2)$ & $\SEt(3)$ \\ \hline
+        Matrix size & $2 \times 2$ & ? & ? & ? \\
+        DOF (group dim.) & 1 & ? & ? & ? \\
+        $\xi$ components & $(\omega)$ & ? & ? & ? \\
+        $\Exp(\xi^\wedge)$ block form & $(R(\omega))$ & ? & ? & ? \\
+        Rotation left Jacobian & $V(\omega) \in \R^{2 \times 2}$ & ? & ? & ? \\
+        $\Ad_X$ size & $1 \times 1$ & ? & ? & ?
+    \end{tabular}
+    \end{center}
+
+    \textit{Hints:} The ``block form'' row describes how the matrix columns of $\Exp(\xi^\wedge)$ are built from the Lie algebra components (e.g., $(R, V\bm{v})$ means the rotation block is $R$ and the translation column is $V(\omega)\bm{v}$). Each translation-like column always uses the same rotation left Jacobian.
+
+\end{enumerate}
+
+%==============================================================================
+\section*{Problem 4: 2D Inertial Navigation on $\SEt(2)$ (25 points)}
+%==============================================================================
+
+A 2D fixed-wing aircraft carries a ``2D IMU'' that measures body-frame angular velocity $\omega$ and body-frame acceleration $\bm{a} = (a_x, a_y)^T$. Your task is to propagate the aircraft's state (orientation, velocity, position) using the $\SEt(2)$ group structure---a 2D analog of the 3D IMU navigation problem from the $\SEt(3)$ lecture.
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item (8 pts) \textbf{Dynamics as Mixed Invariant on $\SEt(2)$:}
+
+    The continuous-time dynamics for 2D inertial navigation are:
+    \begin{align*}
+        \dot{R} &= R \omega^\wedge && \text{(body-frame angular velocity)} \\
+        \dot{\bm{v}} &= R \bm{a} && \text{(body-frame acceleration rotated to world)} \\
+        \dot{\bm{p}} &= \bm{v} && \text{(kinematic coupling)}
+    \end{align*}
+
+    \begin{itemize}
+        \item Verify that these dynamics can be written as $\dot{X} = \xi_R^\wedge X + X \xi_L^\wedge$ where:
+        \begin{itemize}
+            \item $\xi_L^\wedge = \begin{bmatrix} \omega^\wedge & \bm{a} & \bm{0} \\ \bm{0}^T & 0 & 1 \\ \bm{0}^T & 0 & 0 \end{bmatrix}$ encodes body-frame quantities ($\bm{a}$, $\omega$). The $+1$ in the bookkeeping block (row~3, col~4) implements the coupling $\dot{\bm{p}} = \bm{v}$: when you compute $X\xi_L^\wedge$, the velocity column $\bm{v}$ of $X$ is copied into the position column of $\dot{X}$.
+
+            \item $\xi_R^\wedge = \begin{bmatrix} 0 & \bm{0} & \bm{0} \\ \bm{0}^T & 0 & -1 \\ \bm{0}^T & 0 & 0 \end{bmatrix}$ has $-1$ in the same bookkeeping position. The product $\xi_R^\wedge X$ places $-1$ in row~3, col~4 of $\dot{X}$, exactly cancelling the $+1$ artifact that $X\xi_L^\wedge$ introduced there. The result: the bottom two rows of $\dot{X}$ remain zero, as required for $\dot{X}$ to be tangent to $\SEt(2)$.
+        \end{itemize}
+
+        \item \textbf{Key observation:} \textbf{Neither} $\xi_L^\wedge$ nor $\xi_R^\wedge$ is in $\set(2)$! Both have non-zero entries in position $(3,4)$, which is outside the Lie algebra. Using the $(M{-}C)X + X(N{+}C)$ framework from Problem~2:
+        \begin{itemize}
+            \item The ``physics'' matrix $N = \begin{bmatrix} \omega^\wedge & \bm{a} & \bm{0} \\ \bm{0}^T & 0 & 0 \\ \bm{0}^T & 0 & 0 \end{bmatrix} \in \set(2)$ and $M = 0$.
+            \item The coupling matrix $C = \begin{bmatrix} 0 & \bm{0} & \bm{0} \\ \bm{0}^T & 0 & 1 \\ \bm{0}^T & 0 & 0 \end{bmatrix} \notin \set(2)$ handles $\dot{\bm{p}} = \bm{v}$.
+            \item Then $\xi_R^\wedge = M - C = -C$ and $\xi_L^\wedge = N + C$, with $C \notin \set(2)$ pulling both outside the algebra.
+        \end{itemize}
+        This is the structural difference from $\SE(2)$ (Problem~1), where $C = 0$ and both $M, N \in \g$.
+
+        \item This mirrors $\SEt(3)$ from lecture (week~06), where the gravity and velocity coupling terms similarly require $C \notin \set(3)$.
+
+        \item Verify by expanding $\xi_R^\wedge X + X \xi_L^\wedge$ that you recover $\dot{R} = R\omega^\wedge$, $\dot{\bm{v}} = R\bm{a}$, and $\dot{\bm{p}} = \bm{v}$.
+
+        \item Despite $\xi_R^\wedge \notin \g$, the system is \textbf{still group affine}. Verify numerically: choose random $X, Y \in \SEt(2)$ and inputs $(\bm{a}, \omega)$, check $f(XY) = f(X)Y + Xf(Y) - Xf(I)Y$.
+    \end{itemize}
+
+    \item (5 pts) \textbf{Adding Wind (World-Frame):}
+
+    A constant wind acceleration $\bm{w}_a \in \R^2$ (in the world frame) acts on the aircraft, analogous to gravity in $\SEt(3)$. For example, a persistent headwind creates a drag-like deceleration in the world frame. The dynamics become:
+    \[
+        \dot{\bm{v}} = R\bm{a} + \bm{w}_a, \qquad \dot{\bm{p}} = \bm{v}, \qquad \dot{R} = R\omega^\wedge
+    \]
+
+    Separately, the airspeed (velocity relative to the air mass) in the body frame is $\bm{v}_{\text{air}} = R^T(\bm{v} - \bm{w}_v)$ where $\bm{w}_v$ is the wind velocity.
+
+    \begin{itemize}
+        \item Show that the wind acceleration $\bm{w}_a$ enters $M$, giving:
+        \[
+            M = \begin{bmatrix} 0 & \bm{w}_a & \bm{0} \\ \bm{0}^T & 0 & 0 \\ \bm{0}^T & 0 & 0 \end{bmatrix}, \quad \xi_R^\wedge = M - C = \begin{bmatrix} 0 & \bm{w}_a & \bm{0} \\ \bm{0}^T & 0 & -1 \\ \bm{0}^T & 0 & 0 \end{bmatrix}
+        \]
+        while $\xi_L^\wedge = N + C$ is unchanged. The left-invariant part captures body-frame / airspeed-relative quantities; the right-invariant part captures world-frame quantities (wind, coupling).
+        \item Verify the group affine property numerically with $\bm{w}_a = (3, -2)^T$ m/s$^2$.
+        \item For non-holonomic flight, $|\bm{v}_{\text{air}}|$ is the airspeed and we assume $\bm{v}_{\text{air}} \approx (V_{\text{air}}, 0)^T$ (no sideslip in body frame).
+    \end{itemize}
+
+    \item (10 pts) \textbf{2D INS Simulator:}
+
+    Implement a simulator that propagates the $\SEt(2)$ state given ``2D IMU'' measurements.
+
+    \begin{itemize}
+        \item \textbf{Input:} A time series of body-frame measurements $\{(\omega_k, \bm{a}_k)\}$ at timestep $\Delta t = 0.01$ s.
+
+        \item \textbf{Propagation} (using the $\SEt(2)$ group exponential, matching the $\SEt(3)$ lecture):
+        \[
+            X_{k+1} = X_k \cdot \Exp_{\SEt(2)}\!\bigl((\xi_k \,\Delta t)^\wedge\bigr) \cdot \Gamma(\Delta t)
+        \]
+        where the body-frame twist $\xi_k = (a_{x,k},\; a_{y,k},\; 0,\; 0,\; \omega_k)^T$ has zero position components, and the \textbf{coupling matrix}
+        \[
+            \Gamma(\Delta t) = \begin{bmatrix} I_2 & \bm{0} & \bm{0} \\ \bm{0}^T & 1 & \Delta t \\ \bm{0}^T & 0 & 1 \end{bmatrix}
+        \]
+        handles the $\dot{\bm{p}} = \bm{v}$ kinematic coupling, analogous to the $\Gamma(\bm{g}, \Delta t)$ matrix from the $\SEt(3)$ lecture (but without gravity in 2D). The group exponential handles the body-frame dynamics (rotation and acceleration); $\Gamma$ applies the non-algebraic coupling exactly over the step. After the matrix product, extract $R$ from rows~1--2, columns~1--2; $\bm{v}$ from rows~1--2, column~3; and $\bm{p}$ from rows~1--2, column~4. Then reset rows~3--4 to $[0\;0\;1\;0;\;0\;0\;0\;1]$ to restore the $\SEt(2)$ structure.
+
+        \item \textbf{Test scenario:} Use the following synthetic flight profile with 4 phases:
+        \begin{enumerate}[label=\roman*.]
+            \item \textbf{Acceleration:} $\bm{a} = (2, 0)^T$ m/s$^2$, $\omega = 0$ for 5 s (straight-line speedup)
+            \item \textbf{Cruise:} $\bm{a} = (0, 0)^T$, $\omega = 0$ for 5 s (constant velocity)
+            \item \textbf{Banked turn:} $\bm{a} = (0, 0)^T$, $\omega = 0.3$ rad/s for $\pi/0.3 \approx 10.5$ s (180° turn). Note: the vehicle yaws at constant rate while maintaining the inertial speed from the prior phase---no centripetal acceleration is modeled here.
+            \item \textbf{Deceleration:} $\bm{a} = (-1, 0)^T$, $\omega = 0$ for 5 s (slow down)
+        \end{enumerate}
+        Start from $X_0 = I$ (origin, heading east, zero velocity).
+
+        \item Propagate the state and produce the following plots:
+        \begin{enumerate}[label=\arabic*.]
+            \item $(x, y)$ trajectory with heading arrows at key points
+            \item Speed $|\bm{v}(t)|$ vs.\ time
+            \item Heading $\theta(t)$ vs.\ time
+        \end{enumerate}
+
+        \item \textbf{Spiral test:} Run 10~s with constant $\omega = 0.5$~rad/s, $\bm{a} = (1, 0)^T$~m/s$^2$ from $X_0 = I$. Verify the $(x,y)$ trajectory is a spiral (accelerating turn).
+    \end{itemize}
+
+    \item (2 pts) \textbf{Discussion: $\SE(2)$ vs.\ $\SEt(2)$:}
+
+    \begin{itemize}
+        \item The $\SE(2)$ model (Problem~1) commands velocity/yaw-rate directly: instantaneous velocity response.
+        \item The $\SEt(2)$ model commands acceleration: velocity has transients (more realistic).
+        \item Discuss: when is the $\SE(2)$ velocity-level model sufficient? When do you need the $\SEt(2)$ acceleration-level model?
+    \end{itemize}
+
+\end{enumerate}
+
+%==============================================================================
+\section*{Submission Checklist}
+%==============================================================================
+
+Submit a \textbf{single PDF to Gradescope} containing:
+\begin{itemize}
+    \item[$\square$] Problem 1: Fixed-wing kinematics on $\SE(2)$, mixed-invariant form, bank-to-turn, trajectory plot, simulation
+    \item[$\square$] Problem 2: Group affine derivation, mixed invariant proof, error dynamics, \textbf{numerical verification} of group affine identity on $\SE(2)$
+    \item[$\square$] Problem 3: $\SEt(2)$ group operations, Exp/Log derivations, Ad/ad derivations, comparison table, code, \textbf{numerical verification} of $\Exp/\Log$ round-trip and $\Ad$ product property
+    \item[$\square$] Problem 4: Mixed invariant dynamics on $\SEt(2)$, wind model, \textbf{numerical verification} of group affine on $\SEt(2)$, 2D INS simulator, plots, $\SE(2)$ vs $\SEt(2)$ discussion
+\end{itemize}
+
+\end{document}

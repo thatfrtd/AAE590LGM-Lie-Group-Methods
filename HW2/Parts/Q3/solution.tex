@@ -1,0 +1,101 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW2.tex]{subfiles}
+\begin{document}
+
+\subsection{3.a) \textbf{Lie Algebra Structure:}}
+\underline{Question}: \\
+With $\xi = (v_x, v_y, \omega)^T = (\bm{v}^T, \omega)^T$, the wedge map is:
+\[
+\xi^\wedge = \begin{bmatrix} \omega^\wedge & \bm{v} \\ \bm{0}^T & 0 \end{bmatrix} = \begin{bmatrix} 0 & -\omega & v_x \\ \omega & 0 & v_y \\ 0 & 0 & 0 \end{bmatrix}
+\]
+\begin{itemize}
+    \item Verify this is block upper-triangular (rotation block in upper-left, translation in upper-right).
+    \item Implement \texttt{se2\_wedge(xi)} and \texttt{se2\_vee(Xi)}.
+\end{itemize}
+\underline{Solution}: \\
+Code snippet 1 shows the implementation of \texttt{se2\_wedge(xi)} and \texttt{se2\_wedge(Xi)}
+
+\subsection{3.b) \textbf{Exponential Map:}}
+\underline{Question}: \\
+    The closed-form expression is:
+    \[
+    \Exp(\xi^\wedge) = \begin{bmatrix} R(\omega) & V(\omega) \bm{v} \\ \bm{0}^T & 1 \end{bmatrix}
+    \]
+    where $V(\omega) = \frac{\sin\omega}{\omega} I + \frac{1 - \cos\omega}{\omega} \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$.
+    \begin{itemize}
+        \item Derive by hand using the matrix exponential power series (show key steps).
+        \item Implement \texttt{se2\_exp(xi)} with Taylor series for $\omega \approx 0$ (use 5 terms).
+    \end{itemize}
+\underline{Solution}: \\
+Code snippet 1 shows the implementation of \texttt{se2\_exp(xi)}
+
+\subsection{3.c) \textbf{Logarithm Map:}}
+\underline{Question}: \\
+    The inverse of $V(\omega)$ is:
+    \[
+    V(\omega)^{-1} = \frac{\omega}{2} \cot\frac{\omega}{2} \, I + \frac{\omega}{2} \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}
+    \]
+    \begin{itemize}
+        \item Implement \texttt{se2\_log(X)}. Use Taylor series for $\omega \approx 0$ (use 5 terms).
+        \item Verify numerically: $\Exp(\Log(X)) = X$ for random $X \in \SE(2)$.
+    \end{itemize}
+\underline{Solution}: \\
+Code snippet 1 shows the implementation of \texttt{se2\_log(X)}. \\
+Code snippet 2 shows the implementation of the unit test verifying $\Exp(\Log(X)) = X$ for random $X \in \SE(2)$ named \texttt{test\_se2\_exp\_log()} and Fig \ref{fig:se2utestpass} shows the test passing.
+
+\subsection{3.d) \textbf{Adjoint Representation $\Ad_X$:}}
+\underline{Question}: \\
+The adjoint $\Ad_X: \sea{2} \to \sea{2}$ is defined by $(\Ad_X \xi)^\wedge = X \xi^\wedge X^{-1}$.
+\textit{Note: You don't need to multiply out $2 \times 2$ blocks explicitly. Showing block form (e.g., $R \omega^\wedge R^T$, $R\bm{v}$) is sufficient.} \\
+
+\textbf{Translation-first ordering} $\xi = (v_x, v_y, \omega)^T$:
+\begin{itemize}
+    \item Compute $X \xi^\wedge X^{-1}$ explicitly for $X = (\bm{t}, R)$.
+    \item Extract the $3 \times 3$ matrix $\Ad_X$ such that $\Ad_X \xi$ gives the transformed twist.
+
+    You should get: $\Ad_X = \begin{bmatrix} R & \bm{t}^\odot \\ \bm{0}^T & 1 \end{bmatrix}$ where $\bm{t}^\odot = \begin{bmatrix} t_y \\ -t_x \end{bmatrix} = -J\bm{t}$ with $J = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$.
+\end{itemize}
+
+\textbf{Rotation-first ordering} $\xi = (\omega, v_x, v_y)^T$:
+\begin{itemize}
+    \item Repeat the derivation with this ordering. The wedge map produces the same $3 \times 3$ matrix, but extracting $\Ad_X$ requires matching to the new vector ordering.
+    \item You should get: $\Ad_X = \begin{bmatrix} 1 & \bm{0}^T \\ \bm{t}^\odot & R \end{bmatrix}$ (block \textit{lower}-triangular).
+\end{itemize}
+
+\textbf{Verification:}
+\begin{itemize}
+    \item Verify numerically: $\Ad_{X_1 X_2} = \Ad_{X_1} \Ad_{X_2}$ for random $X_1, X_2 \in \SE(2)$.
+    \item Verify numerically: $\Ad_X^{-1} = \Ad_{X^{-1}}$ (the adjoint respects inverses).
+    \item \textbf{Connection to Problem 2:} Confirm that $R$ acts on velocity components, as you predicted from the normal subgroup structure.
+\end{itemize}
+\underline{Solution}: \\
+Code snippet 2 shows the implementation of the unit test verifying $\Ad_{X_1 X_2} = \Ad_{X_1} \Ad_{X_2}$ for random $X_1, X_2 \in \SE(2)$ for random $X \in \SE(2)$ named \texttt{test\_se2\_Ad\_composition} and Fig \ref{fig:se2utestpass} shows the test passing.
+Code snippet 2 shows the implementation of the unit test verifying $\Ad_X^{-1} = \Ad_{X^{-1}}$ for random $X \in \SE(2)$ named \texttt{test\_se2\_Ad\_inv()} and Fig \ref{fig:se2utestpass} shows the test passing.
+
+\subsection{3.e) \textbf{Lie Bracket and $\ad_\xi$:}}
+\underline{Question}: \\
+The Lie bracket on vectors is defined by $[\xi_1, \xi_2]^\wedge := \xi_1^\wedge \xi_2^\wedge - \xi_2^\wedge \xi_1^\wedge$ (i.e., compute the matrix commutator, then apply vee). The small adjoint $\ad_\xi$ is the $3 \times 3$ matrix such that $[\xi_1, \xi_2] = \ad_{\xi_1} \xi_2$.
+
+\textbf{Translation-first ordering} $\xi = (v_x, v_y, \omega)^T$:
+\begin{itemize}
+    \item Compute $[\xi_1^\wedge, \xi_2^\wedge]$ for $\xi_i = (v_{ix}, v_{iy}, \omega_i)^T$. Extract the result as a vector.
+    \item Derive by hand the $3 \times 3$ matrix $\ad_\xi$.
+
+    You should get: $\ad_\xi = \begin{bmatrix} \omega^\wedge & \bm{v}^\odot \\ \bm{0}^T & 0 \end{bmatrix}$ where $\bm{v}^\odot = \begin{bmatrix} v_y \\ -v_x \end{bmatrix} = -J\bm{v}$.
+\end{itemize}
+\underline{Solution}: \\
+
+\subsection{Implementation and Unit Tests}
+\lstinputlisting[language=Python,caption={$\SE{2}$ and $\sea{2}$ Function Implementations}, inputpath=../../../Code/SE2]{SE2_maps.py}
+
+\lstinputlisting[language=Python,caption={Unit Tests for $\SE{2}$ Using Pytest}, inputpath=../../../Tests/SE2]{test_SE2.py}
+
+\begin{figure}[H]
+    \caption{Pytest unit test output showing tests passing}
+    \centering
+    \includegraphics[width=1\linewidth]{AAE590LGM_HW2_Q3_SE2_utests.png}
+    \label{fig:se2utestpass}
+\end{figure}
+
+
+\end{document}

@@ -1,0 +1,51 @@
+% !TeX root = ../../main.tex
+\documentclass[../AAE590LGM_HW1.tex]{subfiles}
+\begin{document}
+
+\subsection{4.a)}
+\underline{Question}: \\
+Write the general form of an element $\Omega \in \soa{2}$ \\
+\underline{Solution}: \\
+$2\times 2$ skew symmetric matrices can be paramterized using $\theta \in \R$ as the following
+\begin{gather*}
+    \Omega = \begin{pmatrix}0 & -\theta \\ 
+    \theta & 0\end{pmatrix} \in \soa{2}
+\end{gather*}
+
+\subsection{4.b)}
+\underline{Question}: \\
+Define the wedge operator $(\cdot)^\wedge:\R\to \soa{2}$ and its inverse, the vee operator $(\cdot)^\wedge:\soa{2}\to\R$ \\
+\underline{Solution}: \\
+For $SO{2}$ the operations are defined as the following: \\
+The wedge operator is defined as $\theta^\wedge = \begin{pmatrix}0 & -\theta \\ \theta & 0\end{pmatrix} = \Omega$\\
+The vee operator is defined as $\Omega^\vee = \Omega_{21} = \theta$
+
+\subsection{4.c)}
+\underline{Question}: \\
+Compute the matrix exponential $\exp(\Omega)$ for $\Omega = \begin{pmatrix}0 & -\theta \\ \theta & 0\end{pmatrix}$ using the power series definition.
+Show that this equals $R(\theta)$ \\
+\underline{Solution}: \\
+Define the matrix $J = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}$
+\begin{gather*}
+    \exp(\Omega) = I + \Omega + \frac{1}{2}\Omega^2 + \frac{1}{6}\Omega^3 + \frac{1}{24}\Omega^4 + \dots \\
+    \Omega^2 = \begin{pmatrix}0 & -\theta \\ \theta & 0\end{pmatrix} \begin{pmatrix}0 & -\theta \\ \theta & 0\end{pmatrix} = -\theta^2I \\
+    \implies \Omega^3 = -\theta^2\Omega \\ 
+    \implies \exp(\Omega) = (1 - \frac{1}{2}\theta^2 + \frac{1}{24}\theta^4 + \dots)I + (\theta - \frac{1}{6}\theta^3 + \frac{1}{120}\theta^5 + \dots)J \\
+    \exp(\Omega) = \cos(\theta)I + \sin(\theta)J = 
+    \begin{pmatrix}
+        \cos(\theta) & -\sin(\theta) \\ 
+        \sin(\theta) & \cos(\theta)
+    \end{pmatrix} = R(\theta) \\
+    \therefore \exp(\Omega) = R(\theta)
+\end{gather*}
+
+\subsection{4.d)}
+\underline{Question}: \\
+What is the dimension of $\soa{2}$? How does this relate to the dimension of the of $\SO{2}$? \\ 
+\underline{Solution}: \\
+The dimension of $\soa{2}$ is 1 because the elements, $2\times2$ skew-symmetric matrices, are parametrized by a single number $\theta$. 
+The dimension of $\SO{2}$ is 1 because the 2 dimensional rotation matrices are also parametrized by a single number $\theta$.
+The dimensions of the Lie group and Lie algebra are the same for $\SO{2}$ and $\soa{2}$. In fact, this holds for any Lie group.
+
+
+\end{document}
