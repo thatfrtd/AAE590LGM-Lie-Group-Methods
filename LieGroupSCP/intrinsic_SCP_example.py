@@ -25,7 +25,7 @@ from Code.SE3.SE3_integrators import se3_Lie_group_integrator
 
 # Define objective
 
-# Solve with iSCP
+## Solve with iSCP
 
 ## Plot
 # Trajectory plot

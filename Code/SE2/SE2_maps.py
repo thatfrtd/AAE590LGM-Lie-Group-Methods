@@ -1,5 +1,5 @@
 import numpy as np
-from Code.SO2.SO2_maps import so2_wedge, so2_vee, so2_exp, so2_log
+from Code.SO2.SO2_maps import so2_wedge, so2_vee, so2_exp, so2_log, so2_ljac, so2_inv_ljac
 
 def se2_compose(X1, X2):
     """
@@ -21,6 +21,34 @@ def se2_compose(X1, X2):
                     [np.zeros((1, 2)), 1]])
 
     return X12
+
+def se2_mat_to_tuplevec(X):
+    """
+    Convert matrix representation to tuple (in vector form)
+
+    :param X: element of SE(2)
+    """
+    X_t = X[0:2, 2].reshape((2, 1))
+    X_R = X[0:2, 0:2]
+    omega = so2_log(X_R).reshape((1, 1))
+    
+    x = np.vstack((X_t, omega))
+
+    return x
+
+def se2_tuplevec_to_mat(x):
+    """
+    Convert tuple (in vector form) to matrix representation
+
+    :param X: element of SE(2)
+    """
+    X_t = x[0:2].reshape((2, 1))
+    X_R = so2_exp(x[2])
+
+    X = np.block([[X_R, X_t], 
+                  [np.zeros((1, 2)), 1]])
+
+    return X
 
 def se2_inverse(X):
     """
@@ -127,3 +155,36 @@ def se2_ad(xi):
     ad[0:2, 2] = -np.array([[0, -1], [1, 0]]) @ ad[0:2, 2]
     
     return ad
+
+def se2_ljac(xi):
+    """
+    Left Jacobian
+
+    :param xi: se(2) Lie algebra element parametrization
+    """
+    omega = xi[2]
+    if omega > 1e-10:
+        a_w = (omega - np.sin(omega)) / omega ** 2
+    else:
+        a_w = 0
+
+    J_l = np.block([[so2_ljac(omega), np.array([[-a_w], [a_w]]) * xi[0:2]],
+                    [0, 0, 1]])
+
+    return J_l
+
+def se2_inv_ljac(xi):
+    """
+    Inverse of left jacobian
+
+    :param xi: se(2) Lie algebra element parametrization
+    """
+    omega = xi[2]
+    if omega > 1e-10:
+        a_w = (omega - np.sin(omega)) / omega ** 2
+    else:
+        a_w = 0
+        
+    J_l_inv = np.block([[so2_inv_ljac(omega), np.array([[-a_w], [a_w]]) * xi[0:2]],
+                        [0, 0, 1]])
+    return J_l_inv

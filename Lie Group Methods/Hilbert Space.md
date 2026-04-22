@@ -1,0 +1,1 @@
+Expectations are inner product on Hilbert space

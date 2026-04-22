@@ -1,0 +1,87 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  8 APR 2026 22:00
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/thatf/OneDrive/Documents/Purdue Classes/AAE 590LGM/AAE590LGM-Lie-Group-Methods/FinalProject/main"
+(c:/Users/thatf/OneDrive/Documents/Purdue Classes/AAE 590LGM/AAE590LGM-Lie-Group-Methods/FinalProject/main.tex
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-10-09>
+(./new-aiaa.cls
+Document Class: new-aiaa 2018/01/10, v1.2
+(c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
+(c:/texlive/2024/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count194
+\c@section=\count195
+\c@subsection=\count196
+\c@subsubsection=\count197
+\c@paragraph=\count198
+\c@subparagraph=\count199
+\c@figure=\count266
+\c@table=\count267
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (c:/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+) (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2024/03/29 v3.1b Micro-typographical refinements (RS)
+ (c:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+) (c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count268
+)
+\MT@toks=\toks20
+\MT@tempbox=\box52
+\MT@count=\count269
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1061.
+LaTeX Info: Redefining \leftprotrusion on input line 1062.
+\MT@prot@toks=\toks21
+LaTeX Info: Redefining \rightprotrusion on input line 1081.
+LaTeX Info: Redefining \textls on input line 1392.
+\MT@outer@kern=\dimen142
+LaTeX Info: Redefining \textmicrotypecontext on input line 2013.
+\MT@listname@count=\count270
+ (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2024/03/29 v3.1b Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip51
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2024/03/29 v3.1b microtype main configuration file (RS)
+))
+
+! LaTeX Error: File `newtxtext.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+./new-aiaa.cls:26: Emergency stop.
+<read *> 
+         
+l.26 ^^M
+        
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 2533 strings out of 475419
+ 39338 string characters out of 5775165
+ 460888 words of memory out of 5000000
+ 25258 multiletter control sequences out of 15000+600000
+ 558832 words of font info for 37 fonts, out of 8000000 for 9000
+ 81 hyphenation exceptions out of 8191
+ 57i,0n,67p,317b,101s stack positions out of 10000i,1000n,20000p,200000b,200000s
+./new-aiaa.cls:26:  ==> Fatal error occurred, no output PDF file produced!

@@ -16,4 +16,7 @@ def se22_Lie_group_integrator(X_k, xi_k, dt):
     a = se22_exp(dt * xi_k) @ Gamma_dt
     X_kp1 = se22_compose(X_k, se22_exp(dt * xi_k) @ Gamma_dt) 
 
+    X_kp1[2:4, :] = np.array([[0, 0, 1, 0], 
+                              [0, 0, 0, 1]])
+
     return X_kp1

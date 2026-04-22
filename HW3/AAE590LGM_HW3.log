@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  21 FEB 2026 19:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  5 MAR 2026 03:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/thatf/OneDrive/Documents/Purdue Classes/AAE 590LGM/Lie Group Methods/HW3/AAE590LGM_HW3"
-(c:/Users/thatf/OneDrive/Documents/Purdue Classes/AAE 590LGM/Lie Group Methods/HW3/AAE590LGM_HW3.tex
+**"c:/Users/thatf/OneDrive/Documents/Purdue Classes/AAE 590LGM/AAE590LGM-Lie-Group-Methods/HW3/AAE590LGM_HW3"
+(c:/Users/thatf/OneDrive/Documents/Purdue Classes/AAE 590LGM/AAE590LGM-Lie-Group-Methods/HW3/AAE590LGM_HW3.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-10-09>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -795,24 +795,24 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (./AAE590LGM_HW3.aux)
 \openout1 = `AAE590LGM_HW3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count378
@@ -840,7 +840,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-Package hyperref Info: Link coloring OFF on input line 162.
+Package hyperref Info: Link coloring OFF on input line 164.
  (./AAE590LGM_HW3.out) (./AAE590LGM_HW3.out)
 \@outlinefile=\write4
 \openout4 = `AAE590LGM_HW3.out'.
@@ -883,22 +883,26 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 166.
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 166.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 164.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 166.
  (c:/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./AAE590LGM_HW3.toc)
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./AAE590LGM_HW3.toc
+LaTeX Font Info:    Trying to load font information for U+euf on input line 8.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+))
 \tf@toc=\write5
 \openout5 = `AAE590LGM_HW3.toc'.
 
@@ -908,171 +912,216 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.165 \newpage
-               [1] (./AAE590LGM_HW3.lol
-LaTeX Font Info:    Trying to load font information for U+euf on input line 1.
- (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-))
+l.167 \newpage
+               [1] (./AAE590LGM_HW3.lol)
 \tf@lol=\write6
 \openout6 = `AAE590LGM_HW3.lol'.
 
 
 
 [2] (./Parts/Q1/question.tex) (./Parts/Q1/solution.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
-
- []
-
-)
-
-[3{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./Parts/Q2/question.tex) (./Parts/Q2/solution.tex)
-
-[4
-
-] (./Parts/Q3/question.tex) (./Parts/Q3/solution.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 46.
+<Parts/Q1/AAE590LGM_HW3_Q1_turn_radius.png, id=107, 462.528pt x 346.896pt>
+File: Parts/Q1/AAE590LGM_HW3_Q1_turn_radius.png Graphic file (type png)
+<use Parts/Q1/AAE590LGM_HW3_Q1_turn_radius.png>
+Package pdftex.def Info: Parts/Q1/AAE590LGM_HW3_Q1_turn_radius.png  used on input line 10.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
+<Parts/Q1/AAE590LGM_HW3_Q1_reftraj.png, id=109, 462.528pt x 346.896pt>
+File: Parts/Q1/AAE590LGM_HW3_Q1_reftraj.png Graphic file (type png)
+<use Parts/Q1/AAE590LGM_HW3_Q1_reftraj.png>
+Package pdftex.def Info: Parts/Q1/AAE590LGM_HW3_Q1_reftraj.png  used on input line 17.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 46.
+[3 <./Parts/Q1/AAE590LGM_HW3_Q1_turn_radius.png>]
+<Parts/Q1/AAE590LGM_HW3_Q1_feasck.png, id=118, 462.528pt x 346.896pt>
+File: Parts/Q1/AAE590LGM_HW3_Q1_feasck.png Graphic file (type png)
+<use Parts/Q1/AAE590LGM_HW3_Q1_feasck.png>
+Package pdftex.def Info: Parts/Q1/AAE590LGM_HW3_Q1_feasck.png  used on input line 24.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
+<Parts/Q1/AAE590LGM_HW3_Q1_linusloopy.png, id=119, 462.528pt x 346.896pt>
+File: Parts/Q1/AAE590LGM_HW3_Q1_linusloopy.png Graphic file (type png)
+<use Parts/Q1/AAE590LGM_HW3_Q1_linusloopy.png>
+Package pdftex.def Info: Parts/Q1/AAE590LGM_HW3_Q1_linusloopy.png  used on input line 31.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 46.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--50
-
- []
-
-
-
-[5
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 75.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 75.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\xi' on input line 75.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 75.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-(c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+[4 <./Parts/Q1/AAE590LGM_HW3_Q1_reftraj.png> <./Parts/Q1/AAE590LGM_HW3_Q1_feasck.png>] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 89.
- (./Parts/Q3/../../../Code/SE2/SE2_maps.py
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 35.
+ (./Parts/Q1/AAE590LGM_HW3_Q1.py
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1.
 
 
-[6]
+[5 <./Parts/Q1/AAE590LGM_HW3_Q1_linusloopy.png>]
 
-[7])
+[6]))
 
-[8] (./Parts/Q3/../../../Tests/SE2/test_SE2.py
-
-[9])
-<Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png, id=361, 1112.65688pt x 202.50656pt>
-File: Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png Graphic file (type png)
-<use Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png>
-Package pdftex.def Info: Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png  used on input line 96.
-(pdftex.def)             Requested size: 469.75502pt x 85.49712pt.
+[7] (./Parts/Q2/question.tex) (./Parts/Q2/solution.tex (./Parts/Q2/../../../Tests/SE2/test_SE2_group_affine.py)
+<Parts/Q2/AAE590LGM_HW3_Q2_gfckpass.png, id=268, 1508.63625pt x 288.3272pt>
+File: Parts/Q2/AAE590LGM_HW3_Q2_gfckpass.png Graphic file (type png)
+<use Parts/Q2/AAE590LGM_HW3_Q2_gfckpass.png>
+Package pdftex.def Info: Parts/Q2/AAE590LGM_HW3_Q2_gfckpass.png  used on input line 15.
+(pdftex.def)             Requested size: 328.82707pt x 62.84264pt.
 )
 
-[10 <./Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png>]
+[8
+
+ <./Parts/Q2/AAE590LGM_HW3_Q2_gfckpass.png>] (./Parts/Q3/question.tex) (./Parts/Q3/solution.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 188.
+(hyperref)                removing `math shift' on input line 12.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 188.
-
-(./Parts/Q4/question.tex) (./Parts/Q4/solution.tex
-Underfull \hbox (badness 10000) in paragraph at lines 6--9
-
- []
+(hyperref)                removing `subscript' on input line 12.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--38
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 12.
 
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 26.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--38
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 26.
 
- []
 
-(./Parts/Q4/../../../Code/SE2/SE2_integrators.py
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 26.
 
-[11
 
-]) (./Parts/Q4/AAE590LGM_HW2_Q4.py
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 26.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 26.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\xi' on input line 26.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 26.
+
+(./Parts/Q3/../../../Code/SE22/SE22_maps.py
+
+[9
+
+{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+
+[10]
+
+[11]) (./Parts/Q3/../../../Tests/SE22/test_SE22.py
 
 [12])
-<Parts/Q4/AAE590LGM_HW2_Q4_traj.png, id=495, 462.528pt x 346.896pt>
-File: Parts/Q4/AAE590LGM_HW2_Q4_traj.png Graphic file (type png)
-<use Parts/Q4/AAE590LGM_HW2_Q4_traj.png>
-Package pdftex.def Info: Parts/Q4/AAE590LGM_HW2_Q4_traj.png  used on input line 45.
+<Parts/Q3/AAE590LGM_HW3_Q3_SE22_utests.png, id=536, 1508.63625pt x 232.61906pt>
+File: Parts/Q3/AAE590LGM_HW3_Q3_SE22_utests.png Graphic file (type png)
+<use Parts/Q3/AAE590LGM_HW3_Q3_SE22_utests.png>
+Package pdftex.def Info: Parts/Q3/AAE590LGM_HW3_Q3_SE22_utests.png  used on input line 46.
+(pdftex.def)             Requested size: 469.75502pt x 72.4306pt.
+
+
+[13])
+
+[14 <./Parts/Q3/AAE590LGM_HW3_Q3_SE22_utests.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 190.
+
+(./Parts/Q4/question.tex) (./Parts/Q4/solution.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+(./Parts/Q4/../../../Tests/SE22/test_SE22_group_affine.py
+
+[15
+
+])
+<Parts/Q4/AAE590LGM_HW3_Q4_gfckpass.png, id=657, 1506.3778pt x 261.22594pt>
+File: Parts/Q4/AAE590LGM_HW3_Q4_gfckpass.png Graphic file (type png)
+<use Parts/Q4/AAE590LGM_HW3_Q4_gfckpass.png>
+Package pdftex.def Info: Parts/Q4/AAE590LGM_HW3_Q4_gfckpass.png  used on input line 15.
+(pdftex.def)             Requested size: 328.82707pt x 57.02344pt.
+ (./Parts/Q4/AAE590LGM_HW3_Q4.py
+
+[16 <./Parts/Q4/AAE590LGM_HW3_Q4_gfckpass.png>]
+
+[17]
+
+[18])
+<Parts/Q4/AAE590LGM_HW3_Q4_traj.png, id=856, 462.528pt x 346.896pt>
+File: Parts/Q4/AAE590LGM_HW3_Q4_traj.png Graphic file (type png)
+<use Parts/Q4/AAE590LGM_HW3_Q4_traj.png>
+Package pdftex.def Info: Parts/Q4/AAE590LGM_HW3_Q4_traj.png  used on input line 25.
 (pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
-<Parts/Q4/AAE590LGM_HW2_Q4_error.png, id=496, 462.528pt x 346.896pt>
-File: Parts/Q4/AAE590LGM_HW2_Q4_error.png Graphic file (type png)
-<use Parts/Q4/AAE590LGM_HW2_Q4_error.png>
-Package pdftex.def Info: Parts/Q4/AAE590LGM_HW2_Q4_error.png  used on input line 51.
+<Parts/Q4/AAE590LGM_HW3_Q4_vel.png, id=857, 462.528pt x 346.896pt>
+File: Parts/Q4/AAE590LGM_HW3_Q4_vel.png Graphic file (type png)
+<use Parts/Q4/AAE590LGM_HW3_Q4_vel.png>
+Package pdftex.def Info: Parts/Q4/AAE590LGM_HW3_Q4_vel.png  used on input line 31.
 (pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
 
 
-[13 <./Parts/Q4/AAE590LGM_HW2_Q4_traj.png>])
+[19 <./Parts/Q4/AAE590LGM_HW3_Q4_traj.png>]
+<Parts/Q4/AAE590LGM_HW3_Q4_head.png, id=881, 462.528pt x 346.896pt>
+File: Parts/Q4/AAE590LGM_HW3_Q4_head.png Graphic file (type png)
+<use Parts/Q4/AAE590LGM_HW3_Q4_head.png>
+Package pdftex.def Info: Parts/Q4/AAE590LGM_HW3_Q4_head.png  used on input line 37.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
+<Parts/Q4/AAE590LGM_HW3_Q4_spiral.png, id=882, 462.528pt x 346.896pt>
+File: Parts/Q4/AAE590LGM_HW3_Q4_spiral.png Graphic file (type png)
+<use Parts/Q4/AAE590LGM_HW3_Q4_spiral.png>
+Package pdftex.def Info: Parts/Q4/AAE590LGM_HW3_Q4_spiral.png  used on input line 44.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
 
-[14 <./Parts/Q4/AAE590LGM_HW2_Q4_error.png>] (./AAE590LGM_HW3.aux)
+
+[20 <./Parts/Q4/AAE590LGM_HW3_Q4_vel.png> <./Parts/Q4/AAE590LGM_HW3_Q4_head.png>]
+<Parts/Q4/AAE590LGM_HW3_Q4_spiralvel.png, id=891, 462.528pt x 346.896pt>
+File: Parts/Q4/AAE590LGM_HW3_Q4_spiralvel.png Graphic file (type png)
+<use Parts/Q4/AAE590LGM_HW3_Q4_spiralvel.png>
+Package pdftex.def Info: Parts/Q4/AAE590LGM_HW3_Q4_spiralvel.png  used on input line 50.
+(pdftex.def)             Requested size: 328.82707pt x 246.63135pt.
+)
+
+[21 <./Parts/Q4/AAE590LGM_HW3_Q4_spiral.png> <./Parts/Q4/AAE590LGM_HW3_Q4_spiralvel.png>] (./AAE590LGM_HW3.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-10-09>
  ***********
 Package rerunfilecheck Info: File `AAE590LGM_HW3.out' has not changed.
-(rerunfilecheck)             Checksum: 119E9BAFA7732498AE9811B0E110DB00;3259.
+(rerunfilecheck)             Checksum: 0B2379944A30435673A26FE67088C98D;3351.
  ) 
 Here is how much of TeX's memory you used:
- 35766 strings out of 475419
- 685102 string characters out of 5775165
- 1647397 words of memory out of 5000000
- 57448 multiletter control sequences out of 15000+600000
- 577083 words of font info for 106 fonts, out of 8000000 for 9000
+ 36287 strings out of 475419
+ 695127 string characters out of 5775165
+ 1788820 words of memory out of 5000000
+ 57614 multiletter control sequences out of 15000+600000
+ 576737 words of font info for 105 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 84i,16n,93p,493b,2939s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on AAE590LGM_HW3.pdf (15 pages, 380132 bytes).
+ 84i,16n,93p,661b,2982s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on AAE590LGM_HW3.pdf (22 pages, 525863 bytes).
 PDF statistics:
- 710 PDF objects out of 1000 (max. 8388607)
- 632 compressed objects within 7 object streams
- 370 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1133 PDF objects out of 1200 (max. 8388607)
+ 1034 compressed objects within 11 object streams
+ 709 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

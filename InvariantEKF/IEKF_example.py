@@ -4,12 +4,17 @@ import matplotlib.pyplot as plt
 from Code.SE22.SE22_maps import SE22_compose, SE22_exp, SE22_log, SE22_wedge, SE22_vee, SE22_inverse
 from Code.SE22.SE22_integrators import SE22_Lie_group_integrator
 
-# Test equivariant Kalman filter on a flying object in 2D
+# Test Invariant Extended Kalman filter on a flying object in 2D
 # IMU for propagation, GPS
+# Left and Right IEKFs
 # Test against EKF?
 # Try numba for speeding up
 
 ## Initialize
+X_0 = np.eye(4)
+
+a = SE22_compose(X_0, X_0)
+
 # Define vehicle
 
 # Define simulation parameters
@@ -18,7 +23,15 @@ from Code.SE22.SE22_integrators import SE22_Lie_group_integrator
 
 # Define dynamics
 
-# Define measurements
+## Define Measurements
+# Accelerometer
+
+
+# Gyrometer
+
+
+# GPS measurements
+
 
 # Initialize filter
 
@@ -31,5 +44,3 @@ from Code.SE22.SE22_integrators import SE22_Lie_group_integrator
 # Trajectory plot
 
 # State error history
-
-# Bias convergence

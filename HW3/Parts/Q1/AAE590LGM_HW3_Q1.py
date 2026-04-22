@@ -15,12 +15,13 @@ V = np.linspace(10, 40, 100) # [m / s]
 phi_0 = np.deg2rad(30) # Desired turn rate [rad]
 turn_radius = turning_radius(V, phi_0)
 
-#plt.plot(V, turn_radius)
-#plt.xlabel("Velocity [m / s]")
-#plt.ylabel("Turning radius [m]")
-#plt.title("Turning Radius vs Velocity for 30 degree Turn Rate")
-#plt.grid()
-#plt.show()
+plt.plot(V, turn_radius)
+plt.xlabel("Velocity [m / s]")
+plt.ylabel("Turning radius [m]")
+plt.title("Turning Radius vs Velocity for 30 degree Turn Rate")
+plt.grid()
+plt.savefig("./HW3/Parts/Q1/AAE590LGM_HW3_Q1_turn_radius.png")
+plt.show()
 
 ## 1b.2) Propagate waypoints
 X_0 = np.eye(3)
@@ -55,7 +56,7 @@ xi_seg = np.hstack((np.matlib.repmat(xi_k[:, :, 0], 1, k_seg[0]),
                     np.matlib.repmat(xi_k[:, :, 7], 1, k_seg[7])))
 
 for k in range(N_seg):
-   X_k[:, :, k + 1] = se2_Lie_group_integrator(X_k[:, :, k], xi_k[:, :, k], T[k])
+    X_k[:, :, k + 1] = se2_Lie_group_integrator(X_k[:, :, k], xi_k[:, :, k], T[k])
    
 for s in range(k_seg_total - 1):
     X_seg[:, :, s + 1] = se2_Lie_group_integrator(X_seg[:, :, s], xi_seg[:, s], dt)
@@ -73,7 +74,7 @@ plt.title("Reference Trajectory in (x, y) Plane")
 plt.legend()
 plt.grid()
 plt.gca().set_aspect('equal', adjustable='box')
-#plt.savefig("./HW2/Parts/Q4/AAE590LGM_HW2_Q4_traj.png")
+plt.savefig("./HW3/Parts/Q1/AAE590LGM_HW3_Q1_reftraj.png")
 plt.show()
 
 def required_bank_angle(velocity, omega):
@@ -89,6 +90,7 @@ plt.xlabel("Time [s]")
 plt.ylabel("Required Bank Angle [deg]")
 plt.title("Required Bank Angle vs Time")
 plt.grid()
+plt.savefig("./HW3/Parts/Q1/AAE590LGM_HW3_Q1_feasck.png")
 plt.show()
 
 # Simulate loop and line
@@ -115,4 +117,5 @@ plt.title("Linus and Loopy")
 plt.legend()
 plt.gca().set_aspect('equal', adjustable='box')
 plt.grid()
+plt.savefig("./HW3/Parts/Q1/AAE590LGM_HW3_Q1_linusloopy.png")
 plt.show()

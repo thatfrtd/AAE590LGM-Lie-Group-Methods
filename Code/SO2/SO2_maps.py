@@ -43,3 +43,31 @@ def so2_log(R):
    theta = np.arctan2(R[1, 0], R[0, 0])
 
    return theta
+
+def so2_ljac(theta):
+    """
+
+    :param theta: lie algebra element
+    """
+
+    if abs(theta) > 1e-8:
+        J_l = np.sin(theta) / theta * np.eye(2) + (1 - np.cos(theta)) / theta * np.array([[0, -1], [1, 0]])
+    else:
+        J_l = ((1 - theta ** 2 / 6 + theta ** 4 / 120) * np.eye(2) 
+           + (theta / 2 - theta ** 3 / 24) * np.array([[0, -1], [1, 0]]))
+    
+    return J_l
+
+def so2_inv_ljac(theta):
+    """
+    Inverse left Jacobian
+    
+    :param theta: lie algebra element
+    """
+
+    if abs(theta) > 1e-8:
+        J_linv = theta / 2 * (np.cos(theta / 2) / np.sin(theta / 2) * np.eye(2) + np.array([[0, 1], [-1, 0]]))
+    else:
+        J_linv = 1 / 2 * ((2 - theta ** 2 / 6 - theta ** 4 / 360 - 2 * theta ** 6 / 30240 + theta ** 8 / 604800) * np.eye(2) + theta * np.array([[0, -1], [1, 0]]))
+
+    return J_linv
