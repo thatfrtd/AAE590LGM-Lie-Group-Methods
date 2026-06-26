@@ -168,12 +168,12 @@ def se2_ljac(xi):
     else:
         a_w = 0
 
-    J_l = np.block([[so2_ljac(omega), np.array([[-a_w], [a_w]]) * xi[0:2]],
+    J_l = np.block([[so2_ljac(omega), np.array([[-a_w], [a_w]]) * xi[0:2].reshape((2, 1))],
                     [0, 0, 1]])
 
     return J_l
 
-def se2_inv_ljac(xi):
+def se2_inv_ljac(xi): # DOUBLE CHECK
     """
     Inverse of left jacobian
 
@@ -184,7 +184,7 @@ def se2_inv_ljac(xi):
         a_w = (omega - np.sin(omega)) / omega ** 2
     else:
         a_w = 0
-        
-    J_l_inv = np.block([[so2_inv_ljac(omega), np.array([[-a_w], [a_w]]) * xi[0:2]],
+
+    J_l_inv = np.block([[so2_inv_ljac(omega), np.array([[a_w], [-a_w]]) * xi[0:2].reshape((2, 1))],
                         [0, 0, 1]])
     return J_l_inv

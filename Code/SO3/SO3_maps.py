@@ -57,15 +57,22 @@ def so3_log(R):
 
 def so3_ljac(theta):
     theta_mag = np.linalg.norm(theta)
-    lambda_vec = theta / theta_mag
 
-    V = np.eye(3) + (1 - np.cos(theta_mag)) / theta_mag * so3_wedge(lambda_vec) + (theta_mag - np.sin(theta_mag)) / theta_mag * so3_wedge(lambda_vec) @ so3_wedge(lambda_vec)
+    if theta_mag > 1e-8:
+        lambda_vec = theta / theta_mag
+        V = np.eye(3) + (1 - np.cos(theta_mag)) / theta_mag * so3_wedge(lambda_vec) + (theta_mag - np.sin(theta_mag)) / theta_mag * so3_wedge(lambda_vec) @ so3_wedge(lambda_vec)
+    else:
+        V = np.eye(3) + 1 / 2 * so3_wedge(theta) + 1 / 6 * so3_wedge(theta) * so3_wedge(theta)
+
     return V
 
 def so3_inv_ljac(theta):
     theta_mag = np.linalg.norm(theta)
-    lambda_vec = theta / theta_mag
 
-    V_inv = np.eye(3) - 1 / 2 * so3_wedge(theta) + (1 - theta_mag * (1 + np.cos(theta_mag)) / (2 * np.sin(theta_mag))) * so3_wedge(lambda_vec) @ so3_wedge(lambda_vec)
+    if theta_mag > 1e-8:
+        lambda_vec = theta / theta_mag
+        V_inv = np.eye(3) - 1 / 2 * so3_wedge(theta) + (1 - theta_mag * (1 + np.cos(theta_mag)) / (2 * np.sin(theta_mag))) * so3_wedge(lambda_vec) @ so3_wedge(lambda_vec)
+    else:
+        V_inv = np.eye(3) - 1 / 2 * so3_wedge(theta) + 1 / 12 * so3_wedge(theta) * so3_wedge(theta)
 
     return V_inv

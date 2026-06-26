@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 def create_cov_ellipse(P, xbar):
     P_eigval, P_eigvec = np.linalg.eig(P)
-    thetas = np.reshape(np.linspace(0, 2 * np.pi, 100), (1, 100))
-    ellipse_3sigma_data = P_eigvec @ np.reshape(np.vstack((3 * np.sqrt(P_eigval[0]) * np.cos(thetas), 3 * np.sqrt(P_eigval[1]) * np.sin(thetas))), (2, 100))
+    thetas = np.reshape(np.linspace(0, 2 * np.pi, 50), (1, 50))
+    ellipse_3sigma_data = P_eigvec @ np.reshape(np.vstack((3 * np.sqrt(P_eigval[0]) * np.cos(thetas), 3 * np.sqrt(P_eigval[1]) * np.sin(thetas))), (2, 50))
     return ellipse_3sigma_data
 
 def plot_cov_ellipse_ax(P, xbar, color, linestyle, ax):
@@ -26,8 +26,8 @@ def calc_and_plot_cov_ellipse(X):
 
 def cov_ellipse_3D(P):
     P_eigval, P_eigvec = np.linalg.eig(P)
-    phi = np.reshape(np.linspace(0, np.pi, 50), (50,))
-    psi = np.reshape(np.linspace(0, 2 * np.pi, 100), (100,))
+    phi = np.reshape(np.linspace(0, np.pi, 30), (30,))
+    psi = np.reshape(np.linspace(0, 2 * np.pi, 60), (60,))
 
     ellipse_3sigma_data = np.zeros((3, phi.size, psi.size))
     for i in range(phi.size):

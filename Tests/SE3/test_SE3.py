@@ -1,6 +1,6 @@
 import pytest as pt
 import numpy as np
-from Code.SE3.SE3_maps import se3_compose, se3_inverse, se3_exp, se3_log, se3_vee, se3_wedge, se3_Ad, se3_ad
+from Code.SE3.SE3_maps import se3_compose, se3_inverse, se3_exp, se3_log, se3_vee, se3_wedge, se3_Ad, se3_ad, se3_ljac, se3_inv_ljac
 
 def test_se3_exp_log():
     """
@@ -107,3 +107,33 @@ def test_se3_ad():
         checks[i] = np.all(Lie_bracket_ad == pt.approx(Lie_bracket))
 
     assert np.all(checks) 
+
+def test_se3_jacs():
+    """
+    Test that ljac(xi) @ ljac_inv(xi) = I for all theta in (-pi, pi]
+    """                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    n_samples = 100
+
+    rng = np.random.default_rng()
+    xi_random = np.reshape(rng.uniform(-10, 10, 6 * n_samples), (6, n_samples))
+
+    checks = np.zeros([n_samples, 1])
+    for i in range(n_samples):
+        checks[i] = np.all(se3_ljac(xi_random[:, i]) @ se3_inv_ljac(xi_random[:, i]) == pt.approx(np.eye(3)))
+
+    assert np.all(checks)
+
+def test_se3_inv_jac():
+    """
+    Test that ljac_inv(xi) = inv(ljac(xi)) for all theta in (-pi, pi]
+    """
+    n_samples = 100
+
+    rng = np.random.default_rng()
+    xi_random = np.reshape(rng.uniform(-10, 10, 6 * n_samples), (6, n_samples))
+
+    checks = np.zeros([n_samples, 1])
+    for i in range(n_samples):
+        checks[i] = np.all(se3_inv_ljac(xi_random[:, i]) == pt.approx(np.linalg.inv(se3_ljac(xi_random[:, i]))))
+
+    assert np.all(checks)

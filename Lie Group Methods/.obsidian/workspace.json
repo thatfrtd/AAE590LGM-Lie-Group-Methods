@@ -761,12 +761,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Choosing Symmetries.md",
+                "file": "Lie Bracket.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Choosing Symmetries"
+              "title": "Lie Bracket"
             }
           }
         ],
@@ -934,12 +934,16 @@
   },
   "active": "d3501f381a2817cc",
   "lastOpenFiles": [
+    "Left Invariant.md",
+    "Right Invariant.md",
+    "Pushforward.md",
+    "Pullback.md",
+    "Choosing Symmetries.md",
     "Pasted image 20260416224502.png",
     "Equivariant Filter.md",
     "Pasted image 20260416224354.png",
     "Exponential Map.md",
     "Equivariant.md",
-    "Choosing Symmetries.md",
     "Pasted image 20260416224138.png",
     "Pasted image 20260416224111.png",
     "Pasted image 20260416224049.png",
@@ -964,13 +968,9 @@
     "Papers/Equivariant symmetries for inertial navigation systems.pdf",
     "Papers/An_Error-State_Model_Predictive_Control_on_Connected_Matrix_Lie_Groups_for_Legged_Robot_Control.pdf",
     "Papers/euler-poincare-semidirectproduct.pdf",
-    "Left Invariant.md",
     "Left Jacobian.md",
     "Lie Algebra.md",
     "Lie Bracket.md",
-    "Right Invariant.md",
-    "Pullback.md",
-    "Pushforward.md",
     "Kalman Gain from Projection Theorem.md",
     "Hilbert Space.md",
     "Lecture Notes/se2.pdf",
@@ -978,7 +978,6 @@
     "Lecture Notes/group_affine.pdf",
     "HW2/Parts/Q3/AAE590LGM_HW2_Q3_SE2_utests.png",
     "HW2/Parts/Q4/AAE590LGM_HW2_Q4_error.png",
-    "HW2/Parts/Q4/AAE590LGM_HW2_Q4_traj.png",
-    "AAE590LGM_HW2_Q4_error.png"
+    "HW2/Parts/Q4/AAE590LGM_HW2_Q4_traj.png"
   ]
 }

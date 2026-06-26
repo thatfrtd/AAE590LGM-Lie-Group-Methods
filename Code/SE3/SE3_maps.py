@@ -44,7 +44,7 @@ def se3_wedge(xi):
     """
     Maps from se3 real number parametrization to se3 Lie algebra
     
-    :param xi: twist vector (v_x, v_y, omega) in R3
+    :param xi: twist vector (v_x, v_y, v_z, omega_x, omega_y, omeg_z) in R3
     """
     xiwedge = np.block([[so3_wedge(xi[3]), xi[0:3].reshape((3, 1))], 
                         [np.zeros((1, 3)),       0]])
